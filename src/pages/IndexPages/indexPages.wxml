@@ -1,0 +1,24 @@
+<cu-custom isBack="{{true}}"   bgColor="qlan"  isBackIcon="true" class="record-custom">
+    <view slot="backText">
+        <text class="titleName">请选择</text>
+    </view>
+</cu-custom>
+<view class="searchWrap" style="position:fixed;left:0;top:{{CustomBar}}px;width:100%;z-Index:1000">
+    <van-search value="{{ value }}" bind:change="onSearchWordChange" placeholder="请输入搜索关键词" />
+</view>
+<view style="height:{{searchWrapHeight}}px"></view>
+<van-index-bar sticky-offset-top="{{offsetTop}}" z-index="0" index-list="{{ indexList }}">
+    <van-radio-group value="{{ radio }}" bind:change="onChange">
+        <van-cell-group value="{{ radio }}" bind:change="onChange">
+            <view wx:for="{{parkListArr}}" wx:for-index="idx" wx:for-item="item">
+                <van-index-anchor index="{{idx}}" />
+                <van-cell  wx:for="{{item}}" wx:for-index="idx2" wx:for-item="item2" title="{{item2.label}}" clickable data-name="{{item2.id}}" data-allitem="{{item2}}" bind:click="onClick">
+                    <van-radio  use-icon-slot slot="right-icon" name="{{item2.id}}">
+                        <van-icon name="{{radio== item2.id?  'success':''}}"  color="#10c2b8" size="36rpx"/>
+                    </van-radio>
+                </van-cell>
+            </view>
+            </van-cell-group>
+        </van-radio-group>
+
+</van-index-bar>

@@ -1,0 +1,14 @@
+<van-toast id="van-toast"/>
+<van-dialog id="van-dialog"/>
+<scroll-view scroll-y class="scrollPage homePage">
+  <view class="header">
+    <cu-custom class="record-custom" textColor="#666666">
+      <view slot="content">登录</view>
+    </cu-custom>
+  </view>
+  <view class="homeImg">
+    <image mode="aspectFit" src="{{appImgUrl}}images/xfd/koutu.png"></image>
+  </view>
+  <button class="useBtn" open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">微信手机号登录</button>
+</scroll-view>
+

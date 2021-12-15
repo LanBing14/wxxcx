@@ -1,0 +1,31 @@
+
+  <view class="header">
+    <cu-custom isBack="{{true}}" isBackIcon="{{true}}" class="record-custom">
+      <view slot="backText" class="backText">
+        二维码
+      </view>
+    </cu-custom>
+  </view>
+  <scroll-view scroll-y style="height: calc( 100vh - {{CustomBar}}px)"  bindscrolltolower="loadMore" refresher-enabled="{{true}}"
+  refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="onRefresh">
+  <view class="main">
+    <view class="list-li">
+      <view class="userAvatarUrl-l">
+        <open-data type="userAvatarUrl"></open-data> 
+      </view>
+      <view class="li-right">
+        <text class="li-top" wx:if="{{userInfo.userName}}">{{userInfo.userName}}</text>
+        <open-data class="li-top" type="userNickName" wx:else ></open-data>
+        <text class="li-bottom">{{companyName}}</text>
+      </view>
+    </view>
+    <view class="orcodeBox">
+      <image src="{{viewImgUrl}}{{orUrl}}" style="width:330rpx;height:330rpx" mode="aspectFill"></image>
+      <view class="orcodeText">
+        <text >扫一扫</text>
+        <text class="text" ></text>
+        获取更多信息
+      </view>
+    </view>
+  </view>
+</scroll-view>

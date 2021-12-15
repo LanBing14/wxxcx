@@ -1,0 +1,96 @@
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+.propertyRepair_wrap{
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.main_content{
+  padding: 0 32rpx;
+}
+
+.main_content_title{
+  color: #00b4aa;
+  font-size: 32rpx;
+  padding-top: 40rpx;
+  padding-bottom: 38rpx;
+}
+
+.star{
+  color: #f73048;
+  padding-right: 14rpx;
+}
+.cu-form-group  .picker {
+  line-height: 100rpx;
+  font-size: 28rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  text-align: right;
+}
+
+.cu-form-group .title {
+  min-width: calc(6em + 30rpx);
+}
+.cuIcon-right{
+  color:#dddddd;
+}
+
+.bottom_main .cu-form-group:nth-child(1){
+  border-top: 1rpx solid #eee;
+}
+
+.bottom_main .cu-form-group:last-child{
+  border-bottom: 1rpx solid #eee;
+}
+
+.textA{
+  width: 100%;
+  height: 268rpx;
+  border: 1rpx solid #eee;
+  padding: 30rpx 30rpx 0;
+}
+
+.form-group  .title{
+  padding-bottom: 20rpx;
+}
+
+.form-group +.form-group{
+  margin-top: 30rpx;
+}
+
+.form-group .max-text{
+  font-size: 28rpx;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #999999;
+}
+
+.submitBtn{
+  width: 100%;
+	height: 80rpx;
+	background-color: #10c2b8;
+}
+
+.submitBtn {
+  background: #10c2b8!important;
+  height: 80rpx!important;
+  border-radius: 8rpx!important;
+}
+.btn_wrap{
+  margin-top: 60rpx;
+  padding-bottom: 60rpx;
+}
+.submitBtn .van-button__text{
+  color:#fff
+}
+
+.toatlArea{
+    color: #999999;
+    font-size: 24rpx;
+    padding-top: 23rpx;
+    text-align: right;
+    line-height: 24rpx;
+}

@@ -1,0 +1,116 @@
+<scroll-view scroll-y class="scrollPage" bindscrolltolower="loadMore" refresher-enabled="{{true}}"
+  refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="onRefresh">
+
+  <view class="header" style=" background-image: url('{{appImgUrl}}/images/home/title_bg.png');">
+    <cu-custom isBack="{{true}}" isBackIcon="{{false}}" class="record-custom">
+      <view slot="backText">
+        <image src="{{appImgUrl}}/images/home/postion.png" class="position_img" mode="aspectFit"
+          style="width:24rpx;height:30rpx;"></image>
+        <text class="title">中国苏州创业园</text>
+      </view>
+    </cu-custom>
+  </view>
+
+
+
+
+
+  <view class="main">
+    <view class="mainr">
+      <view class="main-top">
+        <view class="top-left" style="background-image:url('{{appImgUrl}}/images/home/inform_bg.png')"
+          bindtap="fastGo" data-url="/pages/user-index/home-inform/index">
+          <image src="{{appImgUrl}}/images/home/inform.png" mode="aspectFit"></image>
+          <text>通知公告</text>
+        </view>
+        <view class="top-right">
+          <view class="top-right-top" style="background-image:url('{{appImgUrl}}/images/home/person_bg.png')"
+            bindtap="fastGo" data-url="/pages/service/visitorAppointment/visitorAppointment">
+            <image src="{{appImgUrl}}/images/home/person.png" mode="aspectFit"></image>
+            <text>访客预约</text>
+          </view>
+          <view class="top-right-bottom" style="background-image:url('{{appImgUrl}}/images/home/park_bg.png')"
+            bindtap="fastGo" data-url="/pages/user-info/identificate/identificate">
+            <image src="{{appImgUrl}}/images/home/park.png" mode="aspectFit"></image>
+            <text>停车缴费</text>
+          </view>
+
+        </view>
+      </view>
+      <!-- 热门服务 -->
+      <view>
+        <view class="b-title">
+          <view class="left-title">
+            <image style="height:34rpx;width:32rpx;margin-right:5rpx;" src="{{appImgUrl}}/images/home/hot.png"
+              mode="aspectFit"></image>
+            热门服务
+          </view>
+          <view class="right-more" offset="14" span="4" bindtap="fastGo" data-url="/pages/tabbar/index?cur=three">更多</view>
+        </view>
+
+        <view class="grid col-3 margin-bottom text-center hot-module">
+          <view wx:for="{{hotList}}" wx:key="item" class="module" bindtap="fastGo" data-url="{{item.url}}">
+            <image style="height:92rpx;width:106rpx" src="{{item.img}}" mode="aspectFit">
+            </image>
+            <text>{{item.text}}</text>
+          </view>
+        </view>
+        <!-- 园区活动 -->
+        <view class="b-title">
+          <view class="left-title">
+            <image style="height:34rpx;width:32rpx;margin-right:5rpx;" src="{{appImgUrl}}/images/home/icon_activity.png"
+              mode="aspectFit"></image>
+            园区活动
+          </view>
+          <view class="right-more" offset="14" span="4" bindtap="fastGo" data-url="/pages/user-index/activityList-search/index" >更多</view>
+        </view>
+        <!-- 轮播 -->
+        <view>
+          <van-empty description="暂无数据"  wx:if="{{!swiperList.length}}"/>
+          <swiper wx:if="{{swiperList.length}}" style="width: 686rpx" class="screen-swiper " indicator-dots="{{false}}" circular="{{false}}" autoplay="{{true}}"
+            interval="5000" duration="500" indicator-color="#8799a3"circular="true"
+            indicator-active-color="#0081ff">
+            <swiper-item wx:for="{{swiperList}}" wx:key data-id="{{item.ID}}" bindtap="linkToDetail" class="autoLoad">
+              <image src="{{item.coverPath}}" mode="aspectFill" class="swiper_img">
+                <view class="swiper-tag">
+                  <van-tag color="#ffa001">{{item.status}}</van-tag>
+                </view>
+                <view class="swiper-bottom">
+                  <view class="swiper-title">
+                    {{item.ACTIVITY_NAME}}</view>
+                  <view style="margin:15rpx 0;font-size:26rpx">
+                      <van-icon size="26rpx" style="margin-right: 10rpx;vertical-align: middle;"  name="clock" color="#7bcef0"  />
+                      {{item.ACTIVITY_START_TIME}} ~ {{item.IS_LIMITED == '1'? '不限':item.ACTIVITY_END_TIME}}
+                  </view>
+                  <view style="font-size:26rpx">
+                    <van-icon size="26rpx" style="margin-right: 10rpx;vertical-align: middle;" name="location" color="#7bcef0" />{{item.ACTIVITY_LOCATION}} </view>
+                </view>
+              </image>
+            </swiper-item>
+          </swiper>
+        </view>
+
+        <view class="b-title">
+          <view class="left-title">
+            <image style="height:34rpx;width:32rpx;margin-right:5rpx;" src="{{appImgUrl}}/images/home/message.png"
+              mode="aspectFit"></image>
+            园区资讯
+          </view>
+          <view class="right-more" offset="14" span="4" bindtap="fastGo" data-url="/pages/user-index/park-information/index">更多</view>
+        </view>
+        <van-empty description="暂无数据"  wx:if="{{informationList.length < 1}}"/>
+        <view wx:if="{{informationList.length > 0}}">
+          <view class="list-li" wx:for="{{informationList}}" wx:key bindtap="goDetail" data-id="{{item.ID}}">
+            <image src="{{item.coverPath}}" mode="aspectFit" style="height:136rpx;width:190rpx;"> </image>
+            <view class="li-right">
+              <text class="li-top">{{item.NOTICE_TITLE}}</text>
+              <text class="li-bottom">{{item.CREATE_TIME? item.CREATE_TIME:''}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view view class='cu-tabbar-height'></view>
+</scroll-view>

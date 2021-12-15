@@ -1,0 +1,39 @@
+<!--pages/user-index/home-inform/index.wxml-->
+
+  <view class="header">
+    <cu-custom isBack="{{true}}" isBackIcon="{{true}}" class="record-custom">
+      <view slot="backText" class="backText">
+        通知提醒
+      </view>
+    </cu-custom>
+  </view>
+  <scroll-view scroll-y style="height: calc( 100vh - {{CustomBar}}px)" bindscrolltolower="loadMore" refresher-enabled="{{true}}"
+  refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="onRefresh">
+  <van-tabs active="{{ active }}" bind:change="onChange">
+    <van-tab title="全部" name="2">
+      <template is="informList" data="{{miniNoticesList}}" />
+    </van-tab>
+    <van-tab title="未读" info="{{noReadCount}}" name="0">
+      <template is="informList" data="{{miniNoticesList}}" />
+    </van-tab>
+    <van-tab title="已读" name="1">
+      <template is="informList" data="{{miniNoticesList}}" />
+    </van-tab>
+  </van-tabs>
+
+</scroll-view>
+<template name="informList">
+  <view class="tab-li" wx:if="{{miniNoticesList.length}}" data-list="{{miniNoticesList}}" wx:for="{{miniNoticesList}}" wx:key data-detail="{{item}}" bindtap="handelOpen">
+        <view class="tab-li-left">
+          <view class="cu-avatar">
+            <view class="cu-tag badge" wx:if="{{item.isRead == '0'}}"></view>
+            <van-icon name="bell" color="#36cfc9"> </van-icon>
+          </view>
+          <text class="noticeText">{{item.title}}</text>
+        </view>
+        <text class="time">{{item.formatNoticeTime}}</text>
+      </view> 
+      <view wx:if="{{!miniNoticesList.length}}">
+        <van-empty description="暂无提醒" />
+      </view>
+</template>

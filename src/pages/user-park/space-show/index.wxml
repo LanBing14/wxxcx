@@ -1,0 +1,21 @@
+<!--pages/user-park/space-show/index.wxml-->
+<view class="header">
+  <cu-custom isBack="{{true}}" isBackIcon="{{true}}"  bgColor="qlan"  class="record-custom">
+    <view slot="backText" class="backText">
+      空间展示
+    </view>
+  </cu-custom>
+</view>
+<view class="main">
+  <van-tabs color="#11c2b8" title-active-color="#11c2b8" v-model="active">
+  <van-tab title="园区展示">
+    <image src="{{item.url}}"  class="card-img{{item.id}}" style="width: 702rpx;"  wx:for="{{imgList}}" wx:key wx:if="{{index<=4}}"></image>
+  </van-tab>
+  <van-tab title="园区一角">
+    <image src="{{item.url}}" style="width: 702rpx;" wx:for="{{imgList}}" wx:key wx:if="{{index>4}}"></image>
+  </van-tab>
+</van-tabs>
+ 
+  <!-- <image src="{{appImgUrl}}images/park/p2.png"></image>
+  <image src="{{appImgUrl}}images/park/p3.png"></image> -->
+</view>

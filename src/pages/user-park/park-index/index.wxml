@@ -1,0 +1,80 @@
+<scroll-view scroll-y class="scrollPage" >
+  <view class="header">
+    <cu-custom isBack="{{true}}" isBackIcon="{{false}}"  bgColor="qlan"  class="record-custom">
+      <view slot="backText" class="backText">
+      <image src="{{appImgUrl}}images/park/address.png" class="position_img" mode="aspectFit"
+                  class="homeIcon"></image>
+        园区
+      </view>
+    </cu-custom>
+  </view>
+
+
+  <view class="header-swiper" >
+    <swiper class="header-park-img" indicator-dots="true"
+      autoplay="true" interval="5000" duration="500"  indicator-color="#afb7a9"
+      indicator-active-color="#ffffff">
+      <swiper-item wx:for="{{swiperList}}" wx:key="id" >
+          <van-image
+            width="750rpx"
+            height="360rpx"
+            fit="widthFix"
+            src="{{item.url}}"
+          />
+          <!--<image src="{{item.url}}" mode="aspectFit" class="header-park-img"></image>-->
+      </swiper-item>
+    </swiper>
+  </view>
+
+   <view class="main">
+          <view class="mainr">
+            <!--  tab导航  -->
+            <view class="nav-tab">
+              <view class="nav-tab-item" wx:for="{{tabList}}" wx:key="id" data-url="{{item.url}}" bindtap="fastGo">
+                  <image class="nav-tab-item-img" src="{{item.img}}"
+                  mode="aspectFit"></image>
+                  <view class="nav-tab-item-title">
+                    {{item.text}}
+                  </view>
+              </view>
+            </view>
+              <!--  标题  -->
+            <view class="park-left-title">
+                <view class="left-title">
+                  <image  src="{{appImgUrl}}images/park/yqzxLittle.png"
+                    mode="aspectFit" class="left-title-img"></image>
+                    <view class="left-text">
+                        园区资讯
+                    </view>
+                </view>
+              <view class="right-more" bindtap="fastGo" data-url="/pages/user-index/park-information/index">更多</view>
+            </view>
+            <!--  list表  -->
+            <view class="park-list">
+              <van-empty description="暂无数据"  wx:if="{{!parkList.length}}"/>
+              <view class="park-list-item" wx:for="{{parkList}}" wx:key="id"  wx:if="{{parkList.length}}"  bindtap="handleGo" data-id="{{item.ID}}">
+                <image class="item-img" src="{{item.coverPath}}" mode="aspectFill" />
+                <view class="park-right">
+                    <view class="park-right-title">
+                      {{item.NOTICE_TITLE? item.NOTICE_TITLE:''}}
+                    </view>
+                    <view class="park-right-time">
+                      {{item.CREATE_TIME? item.CREATE_TIME:''}}
+                    </view>
+                </view>
+              </view>
+            </view>
+    <!--             <block wx:if="{{hasMore}}">-->
+    <!--              <view class="loadMore">正在加载中...</view>-->
+    <!--            </block>-->
+    <!--            <block wx:else>-->
+    <!--              <view class="loadMore">没有更多数据了</view>-->
+    <!--            </block>-->
+          </view>
+
+    </view>
+     <view class='cu-tabbar-height'></view>
+</scroll-view>
+  
+
+

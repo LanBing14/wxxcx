@@ -1,0 +1,165 @@
+
+<view  class="container">
+    <view class="translateView" bindtap="hidePlateInput">
+        <cu-custom isBack="{{true}}"  bgColor="qlan"  isBackIcon="true" class="record-custom">
+            <view slot="backText">
+                <text class="titleName">访客预约</text>
+            </view>
+        </cu-custom>
+        <view>
+            <van-radio-group value="{{ sex }}" bind:change="onChange">
+                <view class="top_wrap flex">
+                    <view class="top_wrap_main flex spbetween">
+                
+                            <view class="radio_item">
+                                <view class="itemCircle center" style="{{sex=='0'? 'background-color: #10c2b8;':'background-color: #bfc2ca;'}}">
+                                    <image   class="" src="{{appImgUrl}}images/serive/visitorAppointment/a.png" mode="aspectFit" style="width:127rpx;height:127rpx"></image>
+                                
+                                </view>
+                                <van-radio name="0" icon-size="31rpx"  custom-class="radio_now"></van-radio>
+                            </view>
+                            <view class="whoAreYou">
+                                请问您是？
+                            </view>
+                            <view class="radio_item">
+                                <view class="itemCircle center" style="{{sex=='1'? 'background-color: #10c2b8;':'background-color: #bfc2ca;'}}">
+                                    <image class="" src="{{appImgUrl}}images/serive/visitorAppointment/b.png" mode="aspectFit" style="width:127rpx;height:127rpx;"></image>
+                                </view>
+                                <van-radio name="1" icon-size="31rpx"	 custom-class="radio_now"></van-radio>
+                            </view>
+                
+                    </view>
+                </view>
+            </van-radio-group>
+        </view>
+
+        <form catchsubmit="formSubmit">
+            <view class="infor_content">
+            
+                <view class="infor_title">到访信息</view>
+                <view class="bottom_main">
+                    <!-- 到访日期 -->
+                    <view class="cu-form-group" bind:tap="onDisplay">
+                        <view class="title"><text class="star">*</text>计划到访时间</view>
+                        
+                        <view class="showRight">
+                            {{ date }}
+                            <text class="cuIcon-right" color="dddddd"></text>
+                        </view>
+                        
+                    </view>
+                
+                    <view class="cu-form-group" bind:tap="showCompanyChoose">
+                        <view class="title dfgs"><text class="star">*</text>到访公司</view>
+                    
+                        <view class="showRight">
+                            {{company.label}}
+                            <text class="cuIcon-right" color="dddddd"></text>
+                        </view>
+                    </view>
+                </view>
+                <view class="infor_title" style="padding-top:50rpx">访客信息</view>
+                <!-- 访客姓名-->
+                <view class="form_item">
+                    <view class="form_label"><text class="required">* </text><text class="form_item_content"> 访客姓名</text></view>
+                    <input bindinput="changeName" disabled="{{showPlateInput}}" maxlength="15" name="name" class="product  inputCommon" type="text" value="{{form.name}}" placeholder="请填写"/>
+                </view>
+
+                <!--填报联系电话-->
+                <view class="form_item">
+                    <view class="form_label"><text class="required">* </text><text class="form_item_content">联系方式</text></view>
+                    <input bindinput="changeTel" disabled="{{showPlateInput}}" maxlength="11" class="product  inputCommon" type="text" name="Tel" value="{{form.Tel}}" placeholder="请填写"/>
+                </view>
+                <!-- 来访事由 -->
+                <view class="form_item">
+                    <view class="form_label"><text class="required">* </text><text class="form_item_content">来访事由</text></view>
+                    <picker mode="selector" range="{{thingArr}}" value="{{thingVal}}" bindchange="changeThingIndex">
+                        <view class="picker timeChooseInput">
+                            <input disabled name="thing"  value="{{thingArr[thingVal]}}"  class="product  inputCommon pullDownInput" type="text" placeholder="请填写"/>
+                            <image class="pullIcon" src="../../../addImg/pullArrow.png" style></image>
+                        </view>
+                    </picker>
+                
+                </view>
+                <!-- 随行人数 -->
+                <view class="form_item">
+                    <view class="form_label"><text class="required">* </text><text class="form_item_content">随行人数</text></view>
+                    <input bindinput="changeSuiNum" disabled="{{showPlateInput}}"  name="suiNum" maxlength="15" value="{{form.suiNum}}"  class="product  inputCommon" type="text"  placeholder="请填写"/>
+                </view>
+
+                <!-- 车牌号码  -->
+                <view class="form_item" id="carwrap" style="position: relative;">
+                    <view class="form_label"><text class="form_item_content"> 车牌号码</text><text class="form_item_bz">  如：粤A68688</text></view>
+
+                        <view class="flex alCenter car_item" style="position: relative;"  wx:for="{{cardNoArr}}" id="view-{{index}}">
+                            <view style="flex:8">
+                                <view class="list">
+                                    <view class="product">
+                                        <view class="carwrap">
+                                            <view class="shou">
+                                                <view catchtap="handleClick" data-index="{{index}}" data-jianIndex="0" class="inputBox itemCardW itemCardWFirst">{{item.cardNo? item.cardNo[0]:'苏'}}</view>
+                                                <view catchtap="handleClick" data-index="{{index}}" data-jianIndex="1" class="inputBox itemCardW">{{item.cardNo[1]}}</view>
+                                            </view>
+                                            <view class="imgw-car">
+                                                <image class="dianCar" src="../../../addImg/smallCircle.png"></image>
+                                            </view>
+                                            <view catchtap="handleClick" data-index="{{index}}" data-jianIndex="2" class="inputBox itemCard itemCardW">{{item.cardNo[2]}}</view>
+                                            <view catchtap="handleClick" data-index="{{index}}" data-jianIndex="3" class="inputBox itemCard itemCardW">{{item.cardNo[3]}}</view>
+                                            <view catchtap="handleClick" data-index="{{index}}" data-jianIndex="4" class="inputBox itemCard itemCardW">{{item.cardNo[4]}}</view>
+                                            <view catchtap="handleClick" data-index="{{index}}" data-jianIndex="5" class="inputBox itemCard itemCardW">{{item.cardNo[5]}}</view>
+                                            <view catchtap="handleClick" data-index="{{index}}" data-jianIndex="6" class="inputBox itemCard itemCardW">{{item.cardNo[6]}}</view>
+
+                                            <view catchtap="handleClickShowXin" wx:if="{{!item.isxin}}" data-index="{{index}}"  class="itemCardDash itemCardW">
+                                                
+                                                        <van-icon name="plus"   custom-class="pluss"/>
+                                                
+                                                    <view class="xinNy">
+                                                        新能源
+                                                    </view>
+                                            </view>
+                                            
+
+
+                                            <view catchtap="handleClick" wx:if="{{item.isxin}}" data-index="{{index}}" data-jianIndex="7" class="inputBox itemCard itemCardW">{{item.cardNo[7]}}</view>
+                                            
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+
+                            <view style="flex:4" class="flex spar">
+                                <view wx:if="{{cardNoArr.length!=5}}" class="colorCircle commonC" data-index="{{index}}"  bind:tap="jia">
+                                    <van-icon name="plus" color="#fff" size="30rpx"/>
+                                </view>
+                                <view class="noColor commonC" data-index="{{index}}"  bind:tap="jian">
+                                    <van-icon name="minus" color="#b3b3b3" size="30rpx" />
+                                </view>
+                            </view>
+                        </view>
+
+
+                        
+                </view>
+
+            </view>
+
+        
+            <view class="wx_wrap">
+                <text class="wx_bigT">温馨提示</text>
+                <text>
+                    1、请申请人确保所有信息真实性，包括<text class="colorFont">车牌号</text>信息；
+                    2、此申请单以填写“计划到访时间”为准，仅<text class="colorFont">当天有效.</text>
+                </text>
+            </view>
+            <view class="btn_wrap">
+                <van-button form-type="submit" disabled="{{lock}}"  custom-class="submitBtn" block>提交</van-button>
+            </view>
+        </form>
+        <view style="height:{{translateSpace}}px"></view>
+    </view>
+</view>
+
+
+<car-plate show="{{showPlateInput}}"  id="carPlate" bindsetTransLate="setTransLate" bindchange="handlePlateChange2" type="{{cardNoArr[nowCurrentIndex].inputType}}" bindconfirm="handlePlateConfirm" binddelete="handlePlateDelete" />
+
+<van-calendar color="#10c2b8" show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />

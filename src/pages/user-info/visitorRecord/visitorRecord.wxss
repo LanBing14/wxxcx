@@ -1,0 +1,62 @@
+/* pages/user-info/visitorRecord/visitorRecord.wxss */
+.activityDetails-wrap{
+  padding: 10rpx 30rpx 30rpx;
+}
+.activityDetails-wrap .list-item{
+  min-height: 180rpx;
+  padding: 0 60rpx 0 20rpx;
+  border-radius: 10px;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 20rpx;
+}
+.list-item .status{
+	position:absolute;
+	width: 180rpx;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	font-size: 22rpx;
+  color:#fff;
+  background: #10c2b8;
+	transform: rotate(45deg);
+  top: 15rpx;
+  right: -45rpx;
+}
+.loading-wrap{
+  display: flex;
+  justify-content: center;
+}
+.loading{
+   margin: 100px auto 0;
+}
+.list-item .endStatus{
+  background: #eee;
+  color: #666;
+}
+.activityName{
+  line-height: 90rpx;
+  font-size: 28rpx;
+}
+.date{
+  color: #999;
+  font-size: 24rpx;
+  line-height: 42rpx;
+}
+.flex-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.activityLabel:last-child{
+  margin-right: 0;
+}
+.bottom{
+  border-top: 1px solid #f8f8fa;
+  text-align: right;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #0eb8af;
+}

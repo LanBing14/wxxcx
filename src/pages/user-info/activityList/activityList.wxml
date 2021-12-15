@@ -1,0 +1,40 @@
+ <view class="header">
+    <cu-custom isBack="true" isBackIcon="true" backgroundColor="#11c2b8">
+      <text slot="backText">我的活动</text>
+    </cu-custom>
+  </view>
+
+<scroll-view scroll-y="{{true}}"
+    style="height:calc(100vh - {{CustomBar}}px)"
+    refresher-enabled="true"
+    refresher-default-style="black"
+    bindscrolltolower="onRefresh"
+    refresher-triggered="{{isRefresh}}"
+    bindrefresherrefresh="onRefresh"
+>
+  <view class="noImg" wx:if="{{nodata}}">
+    <image class="imgAct" src="{{noImg.url}}" ></image>
+    <view class="imgAct1">暂无活动</view>
+    <view class="imgAct2">您未参与任何活动,去选个活动参加吧~</view>
+    <view class="btnReport" bindtap="toReport">活动报名</view>
+  </view>
+
+  <view class="activityDetails-wrap" wx:if="{{!nodata}}">
+   <view class="list-item flex-container" wx:for="{{activitiesList}}" wx:key="ID" bindtap="linkToDetail" data-id="{{item.ID}}">
+     <view class="status" wx:if="{{item.status  === '未开始'}}">{{item.status}}</view>
+     <view class="status" wx:elif="{{item.status  === '已报名'}}">{{item.status}}</view>
+     <view class="status endStatus" wx:else>{{item.status}}</view>
+      <image style="width:190rpx;height:136rpx;margin-right:32rpx;" src="{{item.filePath}}"></image>
+       <view>
+           <view class="activityName">{{item.ACTIVITY_NAME}}</view>
+           <view class="date">{{item.ACTIVITY_START_TIME}}   ~ {{item.IS_LIMITED =='1' ? '不限' : item.ACTIVITY_END_TIME}} </view>
+           <view class="activityLabel-wrap flex-container">
+              <view class="activityLabel" wx:for="{{item.ACTIVITY_LABEL_LABEL}}" wx:key="index" wx:if="{{cell}}" wx:for-item="cell">{{cell}}</view>
+           </view>
+       </view>
+   </view>
+  </view>
+</scroll-view>
+
+
+

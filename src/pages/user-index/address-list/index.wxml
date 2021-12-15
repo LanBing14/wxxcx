@@ -1,0 +1,54 @@
+<!--pages/user-index/user-address/index.wxml-->
+
+  <view class="header">
+    <cu-custom isBack="{{true}}" isBackIcon="{{true}}" class="record-custom">
+      <view slot="backText" class="backText">
+        通讯录
+      </view>
+    </cu-custom>
+  </view>
+  <scroll-view scroll-y style="height: calc( 100vh - {{CustomBar}}px)" bindscrolltolower="loadMore" refresher-enabled="{{true}}"
+  refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="onRefresh">
+  <van-tabs active="{{ active }}" bind:change="onChange" wx:if="{{isAdminStatus}}">
+    <van-tab title="全部" name="3">
+      <template is="informList" data="{{addressList,viewImgUrl,appImgUrl,isAdminStatus}}"  />
+    </van-tab>
+    <van-tab title="待审核" name="0">
+      <template is="informList" data="{{addressList,viewImgUrl,appImgUrl,isAdminStatus}}" />
+    </van-tab>
+    <van-tab title="已通过" name="1">
+      <template is="informList" data="{{addressList,viewImgUrl,appImgUrl,isAdminStatus}}" />
+    </van-tab>
+    <van-tab title="已驳回" name="2">
+      <template is="informList" data="{{addressList,viewImgUrl,appImgUrl,isAdminStatus}}" />
+    </van-tab>
+  </van-tabs>
+  <block wx:else>
+    <template is="informList" data="{{addressList,viewImgUrl,appImgUrl,isAdminStatus}}"  />
+  </block>
+</scroll-view>
+<template name="informList">
+  <view class="searchTop">
+    <van-field class="searchInput {{!isAdminStatus&& 'noshowBtn'}}" clearable value="{{ nameOrPhone }}" placeholder="支持姓名、手机号检索" bind:change="onChangeNameOrPhone" />
+    <van-button class="search-btn " bindtap="handleAdd" data-data="" wx-if="{{isAdminStatus}}">
+      <image src="{{appImgUrl}}images/home/invite.png" style="width:56rpx;height:41rpx"></image>
+    </van-button>
+  </view>
+  <view class="list-li" data-list="{{addressList}}" wx:if="{{addressList.length}}"  wx:for="{{addressList}}" wx:key>
+    <view class="list-li-l">
+      <image src="{{item.wx_head}}" style="height:100rpx;width:100rpx;border-radius:32rpx;display:table">
+      </image>
+      <view class="li-right">
+        <view class="li-top">{{item.userName}}
+          <van-tag type="primary" wx:if="{{item.departmentName}}">{{item.departmentName}}</van-tag>
+        </view>
+        <text class="li-bottom">{{item.mobile}}</text>
+      </view>
+    </view>
+
+    <van-button plain size="small" wx:if="{{item.type}}" bindtap="handleAdd" data-data="{{item}}" wx:if="{{item.is_audit == '0'}}">审核</van-button>
+  </view>
+  <view wx:if="{{!addressList.length}}">
+    <van-empty description="暂无提醒" />
+  </view>
+</template>

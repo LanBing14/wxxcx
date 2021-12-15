@@ -1,0 +1,148 @@
+/* pages/user-index/activityList-search/index.wxss */
+/* pages/user-info/activityDetails/activityDetails.wxss */
+.activityDetails-wrap{
+  padding: 0 30rpx 30rpx ;
+}
+/*  搜索 */
+.searchTop{
+  display: flex;
+  margin-bottom: 32rpx;
+  margin-bottom: 0;
+}
+.searchInput{
+  width: 540rpx;
+  margin:0 30rpx;
+  margin-top: 32rpx;
+  /* width: 100%; */
+}
+.searchInput .van-cell {
+  border-radius: 15rpx;
+}
+.search-btn .van-button {
+  border-radius: 15rpx;
+  border: 0;
+  margin-top: 32rpx;
+}
+/* 搜索结束 */
+.activityDetails-wrap .list-item{
+  /* height: 180rpx; */
+  min-height: 180rpx;
+  padding: 20rpx;
+  border-radius: 10px;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 30rpx;
+}
+.list-item .status{
+	position:absolute;
+	width: 180rpx;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 14px;
+  color:#fff;
+  background: #10c2b8;
+	transform: rotate(45deg);
+  top: 15rpx;
+  right: -45rpx;
+}
+.flex1{
+  flex: 1;
+}
+.list-item .endStatus{
+  background: #eee;
+}
+
+.list-item .isGoing{
+  background: #e4c88a;
+  
+}
+
+.list-item .isBmGoing{
+  background: #538c55;
+  font-size: 24rpx!important;
+}
+.activityName{
+  font-size: 28rpx;
+}
+.date{
+  color: #999;
+  font-size: 24rpx;
+  padding-top: 15rpx;
+}
+.flex-container{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.flex-between{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.color-999{
+  color:#999;
+  margin-right: 10rpx;
+  font-size: 24rpx;
+  min-width: 80rpx;
+  margin-top: 15rpx;
+}
+.cu-tag{
+  font-size: 22rpx;
+  margin-right: 5rpx;
+  padding: 0 10rpx;
+}
+.color-999 van-icon{
+  vertical-align: text-bottom;
+}
+.activityLabel{
+  width: 92rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  font-size: 18rpx;
+  text-align: center;
+  border-radius: 5px;
+  color:#fff;
+  background:  #fe9f10;
+  margin-right: 8rpx;
+  margin-top: 15rpx;
+}
+.yuleActivities{
+  background:  #b866de;
+}
+.activityLabel:last-child{
+  margin-right: 0;
+}
+/*  日历 */
+.calendarFooter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+  text-align: center;
+  color: #fff;
+  background: #fff;
+}
+.calendarFooter view{
+  flex: 1;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  margin: 10rpx 0;
+}
+.calendarFooter view:first-child{
+  background: #f44336;
+  margin-right: 10rpx
+}
+.calendarFooter view:last-child{
+  background: #11c2b8;
+  margin-left: 10rpx;
+}
+
+.activityName{
+  width: 85%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

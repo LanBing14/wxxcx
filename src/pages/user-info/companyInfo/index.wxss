@@ -1,0 +1,34 @@
+page{
+  background: #fff;
+}
+.radio-wrap{
+  padding: 30rpx;
+  background: #f5f6fa;
+}
+.common-con{
+  padding: 0 30rpx;
+}
+.picker-con{
+  border: 1px solid #ccc;
+}
+
+.star{
+  color: #f73048;
+  padding-right: 14rpx;
+}
+.cu-form-group  .picker {
+  line-height: 100rpx;
+  font-size: 28rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  text-align: right;
+}
+
+.cu-form-group .title {
+  min-width: calc(6em + 30rpx);
+}
+.cuIcon-right{
+  color:#dddddd;
+}

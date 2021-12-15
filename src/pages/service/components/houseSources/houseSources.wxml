@@ -1,0 +1,19 @@
+<!--pages/service/components/houseSources.wxml-->
+<view class="bgColor">
+    <view class="header">
+        <cu-custom isBack="{{true}}" selfBack="{{true}}" bindselfDBack="selfBack" bgColor="qlan"  isBackIcon="true" class="record-custom">
+            <view slot="backText">
+                <text class="titleName">请选择</text>
+            </view>
+        </cu-custom>
+    </view>
+    <view>
+        <block wx:for="{{roomList}}" wx:key="id">
+             <common-cell hasChoosed="{{hasChoosed}}" bind:myevent="getRooms"  name="{{item.name}}" idNumber="{{item.id}}"></common-cell>
+        </block>
+    </view>
+
+    <view class="btn_wrap">
+        <van-button color="#10c2b8" bind:click="backAndSendRooms"  custom-class="submitBtn" block>确定</van-button>
+	</view>
+</view>

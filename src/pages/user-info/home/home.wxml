@@ -1,0 +1,79 @@
+
+ 
+
+  <view class="header">
+    <cu-custom isBack selfBack="{{true}}" class="record-custom" >
+       <view class="flexContainer" slot="backText"><van-icon name="manager-o"  size="16" style="margin-right:10px"/>我的</view>
+    </cu-custom>
+  </view>
+  <scroll-view scroll-y style="height:calc(100vh - {{CustomBar}}px  - 100rpx)">
+    <view class="myInfo flexContainer" >
+          <view class="userAvatarUrl-l" bindtap="linkToUserInfo">
+          <!-- 
+          <image  style="width:128rpx;height:128rpx" wx:if="{{userInfo.avatar}}" src="{{baseImgUrl+userInfo.avatar}}"></image>
+            <open-data  wx:else type="userAvatarUrl"></open-data>
+          -->
+              <open-data   type="userAvatarUrl"></open-data>
+          </view>
+          <view class="userNickName-r">
+            <view >
+              <view wx:if="{{userInfo.userName}}">{{userInfo.userName}}</view>
+              <open-data wx:else type="userNickName" ></open-data>
+            </view>
+           
+            <van-button
+            custom-style="border:0;border-radius:5px;color:#10c2b8;" type="default" size="small"
+            bind:click="handleClickBindAccount"
+            ><view style="max-width:500rpx;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">{{ userInfo.isAudit==0? '审核中':userInfo.isAudit==2? '已驳回':userInfo.isAudit=='1'&& userInfo.companyName? userInfo.companyName : "绑定账号" }}</view></van-button>
+          </view>
+    </view>
+  <view style="padding: 30rpx">
+   <view class="list-con">
+      <van-cell-group>
+        <van-cell wx:for="{{usersList}}" wx:key = "id" is-link custom-class="cell-height" title-style="font-size:26rpx;color:#666"
+          data-url="{{item.url}}"
+          data-id="{{item.id}}"
+          bindtap="openPage"
+        >
+          <view slot="title">
+            <view class="van-cell-text flexContainer">
+                <image class="image-con" src="{{item.imgIcon}}"/>{{item.title}}
+            </view>
+        </view>
+      </van-cell>
+     </van-cell-group>
+    </view>
+    <!-- <van-cell title="个人信息" is-link title-style="font-size:26rpx;color:#666" data-url="user-info/user-details" bindtap="openPage"/>
+    <van-cell title="我的兑换" is-link title-style="font-size:26rpx;color:#666" data-url="user-goods/record" bindtap="openPage"/>
+    <van-cell title="授权管理" is-link title-style="font-size:26rpx;color:#666" data-url="user-info/user-auth" bindtap="openPage"/>
+    <van-cell title="我的承诺" is-link title-style="font-size:26rpx;color:#666" bindtap="toOtherApplets"/>
+    <van-cell title="关于我们" is-link title-style="font-size:26rpx;color:#666" data-url="user-info/user-about" bindtap="openPage"/> -->
+    <!-- <view class="cutBtn" bindtap="handelChangea">切换至服务端</view> -->
+  </view>
+  <!-- {{showModal?'show':''}} -->
+  <view class="cu-modal  {{showModal?'show':''}}">
+    <view style="position:relative">
+      <view class="action" class="closeBtn" bindtap="hideFalse">
+        <text class="cuIcon-roundclose "></text>
+      </view>
+      <view>
+        <view class="cu-dialog">
+          <view class="imgBox">
+       <!--      <image mode="aspectFit" src="{{appImgUrl}}images/xfd/switchServerPic@2x.png"style="height:57px;width:130rpx"></image>-->
+          </view>
+          <view class=" bg-white modelTextBox">
+            <view class="modelText">您确定要切换至服务端吗？</view>
+            <view class="checkboxBox" bindtap="handelCheck">
+              <text class="cuIcon-{{checkbox?'squarecheckfill':'square'}} lg checkboxIcon"></text>
+              <view class="title">设为默认入口</view>
+            </view>
+          </view>
+          <view class=" footer-btns">
+            <view class="btn1" bindtap="hideTrue">确定</view>
+            <view class="btn2" bindtap="hideFalse">取消</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  </scroll-view>

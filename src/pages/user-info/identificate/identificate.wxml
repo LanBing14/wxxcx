@@ -1,0 +1,13 @@
+<!--pages/user-info/identificate/identificate.wxml-->
+<view class="header">
+    <cu-custom isBack="true" isBackIcon="true" backgroundColor="#11c2b8">
+      <text slot="backText">正在开发中</text>
+      <!-- <text slot="backText" wx:else>认证失败</text> -->
+    </cu-custom>
+  </view>
+  <scroll-view scroll-y style="height:calc(100vh - {{CustomBar}}px)">
+  <view class="common-con">
+    <image src="{{appImgUrl}}/images/user/ukf.png" style="width:223px;height:218px"></image>
+    <view style="margin-top:60rpx">功能正在开发中，敬请期待</view>
+  </view>
+</scroll-view>

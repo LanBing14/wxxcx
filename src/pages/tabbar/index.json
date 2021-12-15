@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "user-index": "/pages/user-index/home/home",
+    "user-park": "/pages/user-park/park-index/index",
+    "user-goods": "/pages/user-goods/home/home",
+    "user-record": "/pages/user-record/home/home",
+    "user-info": "/pages/user-info/home/home",
+    "service-home": "/pages/service/home/index"
+  },
+  "navigationStyle": "custom"
+}

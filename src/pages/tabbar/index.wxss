@@ -1,0 +1,81 @@
+/* pages/index/index.wxss */
+
+page{
+  background:#fff;
+}
+/* components/layout01.wxss */
+
+.header-title{
+  width: 750rpx;
+  height: 128rpx;
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 24rpx; 
+    color:#fff;
+    font-size: 36rpx;
+    z-index: 11;
+}
+.backImg{
+  height:36rpx;
+  width:20rpx;
+}
+.scanImg{
+  height:36rpx;
+  width:35rpx;
+}
+.measuresPage{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 383rpx;
+}
+.dash-img{
+  height: 278rpx;
+  width: 377rpx;
+
+}
+.orcodeImg{
+  width: 133rpx !important;
+  height: 133rpx !important;
+  box-shadow: 0 -1rpx 6rpx rgba(0, 0, 0, 0.1);
+  padding: 14rpx;
+  position: absolute;
+  /* left: 0%; */
+  top: -12rpx;
+  border-radius: 50px;
+  background: #fff;
+}
+.orcodeImg image{
+}
+
+
+.user_info_bottom{
+    font-size:30rpx;
+    padding-left: 40rpx;
+    padding-bottom:40rpx;
+}
+
+.hui{
+    color:#868484
+}
+
+.user_info_wrap{
+    padding-bottom: 20rpx;
+}
+
+.user_info_bottom{
+    font-size:30rpx;
+    padding-left: 40rpx;
+    padding-bottom:40rpx;
+}
+
+.hui{
+    color:#868484
+}
+
+.user_info_wrap{
+    padding-bottom: 20rpx;
+}

@@ -1,0 +1,73 @@
+<cu-custom isBack="{{true}}"  bgColor="qlan"  isBackIcon="true" class="record-custom">
+    <view slot="backText">
+        <text class="titleName">资讯详情</text>
+    </view>
+</cu-custom>
+<view class="title_all_wrap">
+    <image   src="{{appImgUrl}}/images/serive/ew/activity/iconWen.png"  style="width:40rpx;flex:0 0 40rpx;height:35rpx;position: relative;top: 8rpx;"/>
+    <text class="font">{{txtTitle}}</text>
+</view>
+<!-- 图片展示 -->
+<view class="image_show">
+    <image  src="{{viewImgUrl}}{{detail.cover[0].filePath}}" mode="aspectFill"  style="width:100%"/>
+</view>
+<!-- 时间地点 -->
+<view class="timeAndPosition">
+    <view class="bm_wrap">
+        <van-icon name="clock-o" color="#999" size="24rpx" />
+        <text class="bming_number">{{detail.CREATE_TIME}}</text>
+    </view>
+</view>
+<!-- 活动详情 -->
+<view class="detail_wrap">
+    <view class="detail_title">
+        <text>资讯详情</text>
+        <image class="heng" src="{{appImgUrl}}/images/serive/ew/activity/heng.jpg"  style="width:30rpx;height:5rpx"/>
+
+    </view>
+    <view class="main_content">
+
+        <!--
+          <rich-text nodes="{{detail.NOTICE_CONTENT}}" id="comment-rich-text" 
+            class="r-content {{!!extendStr ? 'r-content-simple' : ''}}" 
+            bindtap="previewImage"
+            style="-webkit-line-clamp:{{extendStrBtn?12:'initial'}}"></rich-text>
+
+            <view class="showMore" wx:if="{{ showMore }}"  bindtap="tapViewExtendComment">
+                <view class="more">
+                    {{extendStrBtn?'更多详情':'收起'}}
+                    <van-icon name="arrow-down" wx:if="{{extendStrBtn}}" />
+                    <van-icon name="arrow-up" wx:if="{{!extendStrBtn}}"/>
+                </view>
+             </view> 
+         -->
+        <view class="r-content {{!!extendStr ? 'r-content-simple' : ''}}" >
+        <!-- 禁止预览:  
+             是否允许外部链接被点击时自动复制:copy-link="{{false}}"
+         -->
+             <mp-html  content="{{detail.NOTICE_CONTENT}}" id="commentText" bindimgtap="imgtap" preview-img='{{false}}'></mp-html>
+        </view>
+
+        <view class="showMore" wx:if="{{ showMore }}"  bindtap="tapViewExtendComment" >
+            <view class="more">
+                {{extendStr?'更多详情':'收起'}}
+                <van-icon name="arrow-down" wx:if="{{extendStr}}" />
+                <van-icon name="arrow-up" wx:if="{{!extendStr}}"/>
+            </view>
+        </view> 
+    </view>
+
+</view>
+
+<view class="detail_wrap">
+    <view class="detail_title">
+        <text>附件信息</text>
+        <image class="heng" src="{{appImgUrl}}/images/serive/ew/activity/heng.jpg"  style="width:30rpx;height:5rpx"/>
+    </view>
+    <view class="fDetail">
+        <view wx:for="{{detail.uploadFiles}}" wx:key="item" bind:tap="downloadImg" data-fileName="{{item.fileName}}" data-url="{{item.filePath}}">
+            <image class="file" src="{{appImgUrl}}/images/serive/ew/activity/file.png"  style="width:21rpx;height:24rpx"/>
+            <text>{{item.fileName}}</text>
+        </view>
+    </view>
+</view>

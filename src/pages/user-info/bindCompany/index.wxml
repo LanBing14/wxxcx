@@ -1,0 +1,53 @@
+<wxs src="../../../wxs/subutil.wxs" module="untils" />
+<van-dialog id="van-dialog"/>
+<view class="header">
+    <cu-custom isBack="true" isBackIcon="true" backgroundColor="#11c2b8">
+      <text slot="backText">绑定企业</text>
+    </cu-custom>
+</view>
+<scroll-view scroll-y style="height:calc(100vh - {{CustomBar}}px)">
+  <view class="checkStatus-wrap">
+   <view class="checkStatus">
+    <view class="status dshStatus" wx:if="{{user.isAudit==='0'}}">待审核</view>
+     <view class="status bdStatus" wx:elif="{{user.isAudit==='1'}}">已绑定</view>
+     <view class="status bohuiStatus" wx:elif="{{user.isAudit==='2'}}">已驳回</view>
+     <block>
+      <!-- <view class="image-wrap" wx:if="{{user.companyAvatar}}">
+           <image style="width:120rpx;height:110rpx;" src=""></image>
+        </view> -->
+       <view class="image-wrap no-image">
+           <view>{{untils.sub(user.companyName)||'--'}}</view>
+        </view>
+        <view class="title">{{user.companyName || "--"}}</view>
+         <!--待审核-->
+       <view wx:if="{{user.isAudit==='0'}}" class="tc">绑定申请已提交，请等待企业管理员审核，审核结果将以消息通知</view>
+        <!--已绑定-->
+        <view  wx:elif="{{user.isAudit === '1'}}" class="userInfo">
+         <view>
+          <van-cell title-width="90rpx" title="姓名：" border="{{false}}">
+            <view class="van-cell__value">{{user.userName}}</view>
+          </van-cell >
+         </view>
+         <view>
+       
+          <van-cell title-width="150rpx" title="所在部门："  border="{{false}}">
+           <view class="van-cell__value">{{departmentName || '--'}}</view>
+          </van-cell>
+         </view>
+         <view>
+          <van-cell title-width="150rpx" title="联系方式：" border="{{false}}">
+            <view class="van-cell__value">{{user.mobile}}</view>
+          </van-cell>
+         </view>
+        </view>
+       
+       <!--已驳回-->
+       <view wx:elif="{{user.isAudit === '2'}}" class="tc">绑定申请已驳回，请重新发起。</view>
+     </block>
+   </view>
+   <van-button wx:if="{{user.adminStatus != '1'}}" block type="primary" color="#b7edea"  custom-style="border-radius: 10px;margin-top: 70rpx;color:#11c2b8"
+    bindtap="handleConfirm">
+   {{user.isAudit === '0' ? '取消申请' : user.isAudit === '1' ? '解除绑定' : '重新发起'}}</van-button>
+</view>
+</scroll-view>
+

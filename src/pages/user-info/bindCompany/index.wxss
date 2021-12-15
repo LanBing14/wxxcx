@@ -1,0 +1,89 @@
+
+.checkStatus-wrap{
+	padding: 30rpx;
+	font-family: SourceHanSansCN-Regular;
+}
+.checkStatus{
+  width: 700rpx;
+	height: 635rpx;
+	background-color: #fff;
+	border-radius: 16px;
+	position: relative;
+	overflow: hidden;
+	padding: 100rpx 30rpx 80rpx 30rpx;
+}
+.status{
+	position:absolute;
+	width: 400rpx;
+	height: 72rpx;
+	line-height: 72rpx;
+	text-align: center;
+	font-size: 28rpx;
+	color:#fff;
+	transform: rotate(45deg);
+	top: 40rpx;
+	right: -120rpx;
+}
+.dshStatus{
+	background-color: #ffad37;
+}
+.bdStatus,.bohuiStatus{
+	background-color: #10c2b8;
+}
+.bohuiStatus{
+	background-color: #f73048;
+}
+.image-wrap{
+	width: 160rpx;
+	height: 160rpx;
+	background-color: #f3f3f4;
+	border-radius: 20rpx;
+	margin: 0 auto 50rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #f3f3f4;
+	font-family: SourceHanSansCN-Regular;
+}
+.no-image{
+	background:#f8a3b2;
+	color:#fff;
+	padding: 20px;
+	font-size: 16px;
+	text-align: center
+}
+.title{
+	text-align: center; 
+	font-family: SourceHanSansCN-Regular;
+	font-size: 36rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 50rpx;
+	letter-spacing: 0rpx;
+	color: #222222;
+	margin-bottom: 30rpx;
+}
+.tc{
+	margin-top: 60rpx;
+	text-align: center;
+}
+.userInfo >view{
+  width: 50%;
+	float: left;
+	line-height: 70rpx;
+	font-family: SourceHanSansCN-Regular;
+}
+.userInfo >view:last-child{
+	width: 100%;
+}
+.van-cell__value{
+	text-align: left;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: #666666;
+	font-size: 28rpx;
+}
+.van-cell__title{
+	font-size: 28rpx;
+}

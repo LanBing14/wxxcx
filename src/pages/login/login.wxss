@@ -1,0 +1,37 @@
+/* pages/cxbmfw/index.wxss */
+.homePage{
+  background-color: #fff;
+  height: 100vh;
+}
+.header{
+  height: 150rpx;
+  background-color: #f5f6fa;
+}
+.homeImg{
+  /* height: 550rpx; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.homeImg image{
+    width: 262rpx;
+    height: 262rpx;
+    margin: 155rpx 0;
+}
+.useBtn {
+  border: 0px;
+  margin: 110rpx 52rpx 30rpx;
+  background-color: #ec414d;
+  color: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 25rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.usePhoneText{
+  text-align: center;
+  font-size: 24rpx;
+  color: #444444;
+}
+

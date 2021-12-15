@@ -1,0 +1,38 @@
+/* pages/user-index/home-inform/index.wxss */
+.header {
+  background-color: #10c2b8;
+}
+
+.backText {
+  display: contents;
+}
+
+.tab-li {
+  width: 90%;
+  background: #fff;
+  margin: auto;
+  margin-top: 20rpx;
+  border-radius: 20rpx;
+  padding: 34rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.noticeText{
+  /* width: calc(100% - 70rpx); */
+  display: inline-block;
+  vertical-align: middle;
+}
+.cu-avatar{
+  background-color:initial;
+  width:auto;
+  height:auto;
+  margin-right: 29rpx;
+}
+.tab-li-left{
+  flex:1;
+}
+.time{
+  font-size: 20rpx;
+  color: #999;
+}

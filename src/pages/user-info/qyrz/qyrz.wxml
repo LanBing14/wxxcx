@@ -1,0 +1,40 @@
+<wxs src="../../../wxs/subutil.wxs" module="untils" />
+
+<view class="header">
+    <cu-custom isBack="true" isBackIcon="true" backgroundColor="#11c2b8">
+      <text slot="backText">企业认证</text>
+    </cu-custom>
+</view>
+<scroll-view scroll-y="true" style="height:calc(100vh - {{CustomBar}}px)">
+  <view class="checkStatus-wrap">
+   <view class="checkStatus">
+    <view class="status dshStatus" wx:if="{{status==='0'}}">待审核</view>
+     <view class="status bdStatus" wx:elif="{{status==='1'}}">已绑定</view>
+     <view class="status bohuiStatus" wx:elif="{{status==='2'}}">已驳回</view>
+     <view class="status yirenzhengStatus" wx:else>已认证</view>
+     <block>
+      <view class="image-wrap no-image">
+           {{untils.sub(companyInfo.enterpriseName)}}
+        </view>
+        <!-- <view class="image-wrap" wx:else>
+           <image style="width:120rpx;height:110rpx;" src="/images/user/wzLogo@2x.png"></image>
+        </view> -->
+        <view class="title">{{companyInfo.enterpriseName}}</view>
+        <!--已绑定-->
+        <block  wx:if="{{status==='1'}}">
+          <van-cell title="姓名：" value="张老三" border="{{false}}"/>
+          <van-cell title="所在部门："  value="产品部" border="{{false}}" />
+          <van-cell title="联系方式： " value="18888888888"  border="{{false}}"/>
+        </block>
+        <!--待审核-->
+          <block wx:elif="{{status==='0'}}"><view class="tc">绑定申请已提交，请等待企业管理员审核，审核结果将以消息通知</view></block>
+       <!--已驳回-->
+       <block wx:elif="{{status==='2'}}"><view class="tc">绑定申请已驳回，请重新发起。</view></block>
+         <!--已认证-->
+         <block v-else><view class="tc" style="margin-top: 60rpx">所属园区：{{companyInfo.buildName || "--"}}</view></block>
+     </block>
+   </view>
+</view>
+</scroll-view>
+
+ 

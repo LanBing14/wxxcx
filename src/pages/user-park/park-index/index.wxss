@@ -1,0 +1,122 @@
+.scrollPage {
+  background-color: #f8f8fa;
+}
+/* 头部 */
+.header {
+  background-color: #10c2b8;
+}
+.backText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.homeIcon{
+  width:24rpx;
+  height:30rpx;
+  padding-top:4rpx;
+  margin-right: 10rpx;
+
+}
+/* 轮播 */
+.header-swiper {
+  height:360rpx;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.header-swiper .header-park-img{
+  width: 100%;
+  height: 360rpx;
+}
+
+/* tab内容部分 */
+.main{
+  position: relative;
+  width: 100%;
+  margin: 0!important;                                                                  
+}
+.mainr{
+  width: 100%;
+  padding: 20rpx 32rpx;
+  /* margin-bottom: 50px; */
+}
+.nav-tab{
+  background-color: #fff;
+  padding: 10rpx 24rpx 20rpx;
+  border-radius: 8px;
+  display: flex;
+  justify-items: center;
+  align-content: center;
+}
+.nav-tab-item{
+  flex: 0 0 25%;
+  text-align: center;
+}
+.nav-tab-item .nav-tab-item-img {
+  width: 120rpx;
+  height: 120rpx;
+}
+.nav-tab-item .nav-tab-item-title {
+  color: #787d85;
+  font-size: 24rpx;
+  line-height: 20rpx;
+}
+.park-left-title{
+  height: 86rpx;
+  line-height: 86rpx;
+}
+.park-left-title .left-title .left-title-img{
+  width: 34rpx;
+  height: 34rpx;
+  margin-top: 26rpx;
+  display: block;
+  float: left;
+  margin-right: 13rpx;
+}
+.park-left-title .left-text {
+  font-size: 28rpx;
+  float: left;
+	color: #222222;
+}
+.park-left-title .right-more {
+  float: right;
+  font-size: 28rpx;
+  color: #999999;
+}
+.park-list .park-list-item {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 23rpx 24rpx;
+  margin-bottom: 24rpx;
+  height: 182rpx;
+}
+.park-list .park-list-item  .item-img{
+  float: left;
+  width: 190rpx;
+  height: 136rpx;
+  margin-right: 35rpx;
+
+}
+.park-list .park-list-item .park-right .park-right-title {
+  font-size: 28rpx;
+	line-height: 42rpx;
+  font-family: SourceHanSansCN-Regular;
+  height: 87rpx;
+	color: #222222;
+  word-break: break-all; 
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+   -webkit-line-clamp:2; 
+   overflow: hidden; 
+   text-overflow:ellipsis;
+}
+.park-list .park-list-item .park-right .park-right-time {
+  font-size: 24rpx;
+  color: #999999;
+  line-height: 32rpx;
+  margin-top: 15rpx;
+}
+
+.loadMore{
+  text-align: center;
+}

@@ -1,0 +1,40 @@
+<!--pages/user-info/user-details/index.wxml-->
+<van-dialog id="van-dialog" />
+<scroll-view scroll-y class="scrollPage recordPage">
+  <view class="header">
+    <cu-custom isBack="true" isBackIcon="true" backgroundColor="#11c2b8" class="record-custom">
+      <text slot="backText">个人中心</text>
+    </cu-custom>
+  </view>
+  <view class="to-main">
+    <van-cell center title="头像" value-class="myValueClass" title-style="font-size:26rpx;color:#666">
+         <view class="userAvatarUrl-con" bind:tap="saveAvatar">
+            <!--
+            <image style="width:130rpx;height:130rpx" wx:if="{{userInfo.avatar}}" src="{{baseImgUrl+userInfo.avatar}}"></image>
+             -->
+            <open-data type="userAvatarUrl"></open-data>
+         </view>
+    </van-cell>
+    <van-cell title="用户名"  value-class="myValueClass" title-style="font-size:26rpx;color:#666">
+      <block>
+          <text>{{user.userName || "--"}}</text>
+          <!-- <open-data type="userNickName"></open-data>  -->
+        </block>
+    </van-cell>
+    <van-cell title="联系方式" value="{{user.mobile}}" value-class="myValueClass" title-style="font-size:26rpx;color:#666" />
+    <van-button  
+      custom-style="border:0;border-radius:5px;color:#10c2b8;margin-top:28rpx;" type="default"  block
+      bind:click="handleLogout" >退出登录</van-button>
+    <!-- <van-cell  title="姓名" value="{{user.user.username}}" value-class="myValueClass" title-style="font-size:26rpx;color:#666" />
+    <van-cell title="性别" value="{{user.user.gender}}" value-class="myValueClass" title-style="font-size:26rpx;color:#666" />
+
+    <van-cell class="add-margin-top" title="证件类型" value="身份证" value-class="myValueClass" title-style="font-size:26rpx;color:#666" />
+    <van-cell title="证件号码" value="{{user.idCard}}" value-class="myValueClass" title-style="font-size:26rpx;color:#666" />
+    <van-cell title="证件有效期" value="{{user.zjyxq}}" value-class="myValueClass" title-style="font-size:26rpx;color:#666" />
+
+    <van-cell class="add-margin-top" title="手机号" value="{{user.phone}}" value-class="myValueClass" title-style="font-size:26rpx;color:#666" /> -->
+
+  </view>
+
+
+</scroll-view>

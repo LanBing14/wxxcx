@@ -1,0 +1,27 @@
+<view class="cu-custom" style="height:{{CustomBar}}px; color:{{textColor}};">
+  <view class="cu-bar fixed {{bgImage!=''?'none-bg text-white bg-img':''}} {{bgColor}}"
+    style="height:{{CustomBar}}px;padding-right:{{StatusBar}}px;{{bgImage?'background-image:url(' + bgImage+')':''}};background: {{backgroundColor}}">
+    <view class="action"  style="padding-top:{{StatusBar}}px">
+      <view wx:if="{{isBack}}" class="{{isHaveBackground?'backIconStyle':''}}" bindtap="BackPage" style="display:flex">
+        <text class="cuIcon-back" wx:if="{{isBackIcon}}"></text>
+        <slot name="backText"></slot>
+      </view>
+      <view style="margin-left:{{isBack?'50rpx':'0'}}" wx:if="{{isScan}}" bind:tap="handelScan">
+        <image mode="aspectFit" src="{{appImgUrl}}images/xfd/scanWhite@2x.png" class="scanImg" ></image>
+        <!-- <slot name="near-back"></slot> -->
+      </view>
+    </view>
+
+    <view class="action border-custom" wx:if="{{isCustom}}"
+      style="width:{{Custom.width}}px;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)">
+      <text class="cuIcon-back" bindtap="BackPage"></text>
+      <text class="cuIcon-homefill" bindtap="toHome"></text>
+    </view>
+    <view class="content" style="top:{{StatusBar}}px">
+      <slot name="content"></slot>
+    </view>
+    <view style="padding-top:{{isBack?StatusBar:'0'}}px">
+      <slot name="right"></slot>
+    </view>
+  </view>
+</view>

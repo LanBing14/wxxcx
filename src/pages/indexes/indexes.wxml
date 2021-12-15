@@ -1,0 +1,41 @@
+<cu-custom isBack="{{true}}" bgColor="qlan"  isBackIcon="true" class="record-custom">
+    <view slot="backText">
+        <text class="titleName">请选择</text>
+    </view>
+</cu-custom>
+<view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px;">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" bindinput="onSearchWordChange" placeholder="输入搜索的关键词" confirm-type="search"></input>
+  </view>
+  <!--<view class="action">
+    <button class="cu-btn bg-gradual-green shadow-blur round" bind:tap="onSearchWordChange">搜索</button>
+  </view>-->
+</view>
+<scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID}}" style="height:calc(100vh - {{CustomBar}}px - 50px)" scroll-with-animation="true" enable-back-to-top="true">
+        <van-radio-group value="{{ radio }}" bind:change="onChange">
+        <van-cell-group value="{{ radio }}" bind:change="onChange">
+          <block wx:for="{{parkListArr}}" wx:key>
+            <view class="padding indexItem-{{index}}" id="indexes-{{index}}" data-index="{{index}}">{{index}}</view>
+            <view class="cu-list menu-avatar no-padding">
+
+               <van-cell custom-class="cell"  wx:for="{{item}}" wx:for-index="idx2" wx:for-item="item2" title="{{item2.label}}"   data-allitem="{{item2}}" clickable data-name="{{item2.id}}" bind:click="onClick">
+                    <van-radio use-icon-slot slot="right-icon" name="{{item2.id}}">
+                        <van-icon name="{{radio== item2.id?  'success':''}}"  color="#10c2b8" size="36rpx"/>
+                    </van-radio>
+                </van-cell>
+
+            </view>
+          </block>
+        </van-cell-group>
+      </van-radio-group>
+</scroll-view>
+<view class="indexBar" style="height:calc(100vh - {{CustomBar}}px - 50px)">
+  <view class="indexBar-box" bindtouchstart="tStart" bindtouchend="tEnd" catchtouchmove="tMove">
+    <view class="indexBar-item" wx:for="{{list}}" wx:key id="{{index}}" bindtouchstart="getCur" bindtouchend="setCur">{{list[index]}}</view>
+  </view>
+</view>
+<!--选择显示-->
+<view hidden="{{hidden}}" class="indexToast">
+  {{listCur}}
+</view>

@@ -1,0 +1,163 @@
+/* pages/user-goods/details/index.wxss */
+
+.recordPage {
+  background-color: #f5f6fa;
+  height: 100vh;
+}
+.pageMain{
+  height:calc(100vh - 100px);
+  overflow:auto;
+}
+
+.header {
+  background-color: #ec414d !important;
+}
+
+.main {
+  margin: 24rpx;
+  padding: 28rpx;
+  background-color: #fff;
+  border-radius: 14rpx;
+}
+
+.main-top {
+  display: flex;
+
+}
+
+.main-top>view {
+  margin-left: 24rpx;
+}
+
+.main-top>view .nameText {
+  font-size: 28rpx;
+  color: #333333;
+  display: flex;
+}
+
+.nameText>text {
+  margin-right: 19rpx;
+}
+
+.cu-tag {
+  background-color: #fde8e9;
+  color: #ec414d;
+  font-size: 18rpx;
+  padding: 6rpx 13rpx;
+  border-radius: 8rpx;
+  margin: auto;
+}
+
+.price-box {
+  color: #ec414d;
+  display: flex;
+  align-items: center;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.price text {
+  display: inline-block;
+  font-size: 40rpx;
+}
+
+.oldPrice {
+  color: #999999;
+  font-size: 20rpx;
+  text-decoration: line-through;
+  margin-left: 20rpx;
+}
+
+.companayName {
+  font-size: 24rpx;
+  color: #222222;
+  margin-top: 40rpx;
+  display: inline-block;
+}
+
+.arrowIcon {
+  position: absolute;
+  right: 40rpx;
+}
+
+.ruleCol {
+  margin-top: 25rpx;
+  display: inline-block;
+  width: 100%;
+  font-size: 22rpx;
+  color: #444;
+}
+
+.ruleCol view {
+  display: inline-block;
+}
+
+.ruleCol text {
+  display: block;
+  /* vertical-align: baseline; */
+}
+
+.redDot {
+  margin-right: 20rpx;
+}
+
+.ruleCol view:last-child {
+  width: calc(100% - 116rpx);
+  word-wrap: break-word;
+  vertical-align: top;
+}
+
+.useBtn {
+  border: 0px;
+  margin: 40rpx 20rpx 20rpx;
+  background-color: #ec414d;
+  color: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 25rpx;
+  font-size: 33rpx;
+  font-weight: bold;
+}
+
+.footer {
+  padding: 33rpx;
+  background-color: #fff;
+  margin-top: 30rpx;
+}
+
+.footer .footer-text {
+  display: block;
+}
+
+.footer-text:nth-child(2) {
+  margin-top: 18rpx;
+}
+
+.footer-nun {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.qrcodeBox{
+  margin: auto;
+  background-color: #fff;
+  height: 410rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.qrcode {
+  width: 330rpx;
+  height: 330rpx;
+}
+.in-code{
+  display: flex;
+  justify-content: center;
+}
+.in-code image{
+  width: 330rpx;
+  height: 330rpx;
+}

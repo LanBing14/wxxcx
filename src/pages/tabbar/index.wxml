@@ -1,0 +1,79 @@
+<van-toast id="van-toast"/>
+<van-dialog id="van-dialog" />
+<!-- 首页 -->
+<user-index wx:if="{{PageCur=='one'}}"></user-index>
+
+
+<!--登陆-->
+<van-dialog
+  use-slot
+  title="用户授权"
+  show="{{isLoginShow}}"
+  show-cancel-button
+  confirm-button-open-type="getPhoneNumber"
+  bind:close="onClose"
+  bind:getphonenumber="getPhoneNumber"
+>
+<view class="user_info_bottom">
+      <view class="user_info_wrap hui">用户授权</view>
+      <view class="hui">请确认授权以下信息：</view>
+      <view class="bottomMain hui">
+        <view>• 获取您的手机号信息</view>
+        <view>• 获取您当前位置信息</view>
+        <view>• 获取您的公开信息（头像、昵称等）</view>
+      </view>
+</view>
+</van-dialog>
+
+<!--登陆结束-->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 园区 -->
+<user-park wx:if="{{PageCur=='two'}}"></user-park>
+<!-- 服务 -->
+<service-home  wx:if="{{PageCur=='three'}}"></service-home>
+<!-- 我的 -->
+<user-info wx:if="{{PageCur=='four'}}"></user-info>
+<view>
+  <view class="cu-bar tabbar bg-white shadow foot">
+    <view class="action" bindtap="NavChange" data-cur="one">
+      <view class='cuIcon-cu-image'>
+        <image src="{{appImgUrl}}/images/tabbar/index{{PageCur == 'one'?'_hov':''}}.png"></image>
+      </view>
+      <view class="text-gray">首页</view>
+    </view>
+    <view class="action" bindtap="NavChange" data-cur="two">
+      <view class='cuIcon-cu-image'>
+        <image src="{{appImgUrl}}/images/tabbar/goods{{PageCur == 'two'?'_hov':''}}.png"></image>
+      </view>
+      <view class="text-gray">园区</view>
+    </view>
+    <view class="action" bindtap="NavChange" data-cur="ORCode" bindtap="goOrcode">
+      <view class='cuIcon-cu-image orcodeImg'>
+        <image src="{{appImgUrl}}/images/tabbar/2wm.png" style="height: 100%;width:100%"></image>
+      </view>
+    </view>
+    <view class="action" bindtap="NavChange" data-cur="three">
+      <view class='cuIcon-cu-image'>
+        <image src="{{appImgUrl}}/images/tabbar/record{{PageCur == 'three'?'_hov':''}}.png"></image>
+      </view>
+      <view class="text-gray">服务</view>
+    </view>
+    <view class="action" bindtap="NavChange" data-cur="four">
+      <view class='cuIcon-cu-image'>
+        <image src="{{appImgUrl}}/images/tabbar/info{{PageCur == 'four' ? '_hov' : ''}}.png"></image>
+      </view>
+      <view class="text-gray">我的</view>
+    </view>
+  </view>
+</view>

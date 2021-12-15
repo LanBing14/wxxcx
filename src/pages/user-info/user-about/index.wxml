@@ -1,0 +1,22 @@
+<!--pages/user-info/user-about/index.wxml-->
+<scroll-view scroll-y class="scrollPage recordPage">
+  <view class="header">
+    <cu-custom isBack="true" class="record-custom">
+      <view slot="content">关于我们</view>
+    </cu-custom>
+  </view>
+  <view class="to-main">
+    <view>
+      <view class="title">公司信息及合法说明</view>
+      <view class="text">
+    江苏未至科技股份有限公司是依法成立的提供信用领域软件产品及信用业务系统解决方案的供应商，严格遵循国家关于个人信息保护相关监管规定的前提下，对用户的个人信息进行收集、整理、加工保存，并在法律允许的范围内或经用户授权的情况下，我们才会向其他第三方提供信用分及其他信用相关信息。
+      </view>
+    </view>
+    <view class="margin-top">
+      <view class="title">服务规则</view>
+      <view class="text"> 
+    为了用户能及时、方便、快捷地使用信用分服务，并为用户提供客观、科学及尽可能全面的信用管理及评价，用户授权我们从合法存有用户个人信息的信息提供者处收集信息并进行处理。我们尊重用户的隐私并郑重承诺我们不会收集用户的宗教信仰、基因、指纹血型、疾病和病史信息以及其他法律禁止我们采集的信息。信用服务而言，当信息使用者向我们查询用户的信息时，在用户允许授权的情况下我们将用户的信息提供给相应机构。
+      </view>
+    </view>
+  </view>
+</scroll-view>

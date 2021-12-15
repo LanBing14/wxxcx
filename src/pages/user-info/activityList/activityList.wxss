@@ -1,0 +1,96 @@
+/* pages/user-info/activityDetails/activityDetails.wxss */
+.activityDetails-wrap{
+  padding: 10rpx 30rpx 30rpx;
+}
+.activityDetails-wrap .list-item{
+  height: 180rpx;
+  padding: 20rpx;
+  border-radius: 10px;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 20rpx;
+}
+.list-item .status{
+	position:absolute;
+	width: 180rpx;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 24rpx;
+  color:#fff;
+  background: #10c2b8;
+	transform: rotate(45deg);
+  top: 15rpx;
+  right: -45rpx;
+}
+.endStatus{
+  background: #eee;
+}
+.activityName{
+  font-size: 28rpx;
+}
+.date{
+  color: #999;
+  font-size: 24rpx;
+  padding: 15rpx 0;
+}
+.flex-container{
+  display: flex;
+  align-items: center;
+}
+.activityLabel{
+  width: 92rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  font-size: 18rpx;
+  text-align: center;
+  border-radius: 5px;
+  color:#fff;
+  background:  #fe9f10;
+  margin-right: 8rpx;
+  padding: 0 2rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.activityLabel:nth-child(even){
+  background:  #b866de;
+}
+.activityLabel:last-child{
+  margin-right: 0;
+}
+.noImg {
+  width: 100%;
+  height:calc(100vh - 60rpx);
+  background-color: #fff;
+  text-align: center;
+}
+.noImg .imgAct {
+  width: 376rpx;
+  height: 299rpx;
+  margin: 140rpx auto 0 auto;
+}
+.noImg .imgAct1 {
+  font-size: 40rpx;
+  color: #222222;
+  margin-top: 80rpx;
+}
+.noImg .imgAct2 {
+  font-size: 28rpx;
+  color: #444444;
+  line-height: 90rpx;
+}
+.btnReport {
+  width: 638rpx;
+  height: 80rpx;
+  font-size: 32rpx;
+  background-color: #10c2b8;
+  color: #fff;
+  margin: 0 auto;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 20rpx ;
+  margin-top: 40rpx;
+}

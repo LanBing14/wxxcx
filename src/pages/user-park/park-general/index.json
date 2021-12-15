@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "cu-custom":"../../../colorui/components/cu-custom",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-steps": "@vant/weapp/steps/index"
+  }
+}

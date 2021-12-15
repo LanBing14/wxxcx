@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/tabbar/index",
+    "pages/indexes/indexes",
+    "pages/user-info/home/home",
+    "pages/login/login",
+    "pages/user-info/qyrz/qyrz",
+    "pages/user-info/visitorRecord/visitorRecord",
+    "pages/user-info/bindCompany/index",
+    "pages/service/FYdeclarationHasDetail/FYdeclarationHasDetail",
+    "pages/service/SolicitInformationHasDetail/SolicitInformationHasDetail",
+    "pages/companyChoosePage/companyChoosePage",
+    "pages/user-info/identificate/identificate",
+    "pages/user-info/activityList/activityList",
+    "pages/user-info/visitorCode/visitorCode",
+    "pages/user-info/user-details/index",
+    "pages/user-info/companyInfo/index",
+    "pages/service/FYdeclarationDetail/FYdeclarationDetail",
+    "pages/service/SolicitInformationDetail/SolicitInformationDetail",
+    "pages/IndexPages/indexPages",
+    "pages/user-park/park-index/index",
+    "pages/user-index/home-inform/index",
+    "pages/user-index/home-mark/index",
+    "pages/user-index/home-park/index",
+    "pages/service/propertyRepair/propertyRepair",
+    "pages/service/FYdeclaration/FYdeclaration",
+    "pages/service/SolicitInformation/solicitInformation",
+    "pages/service/decorationApplication/decorationApplication",
+    "pages/service/visitorAppointment/visitorAppointment",
+    "pages/activitiesDetail/activitiesDetail",
+    "pages/user-index/activityList-search/index",
+    "pages/user-index/inform-details/index",
+    "pages/user-index/information-details/index",
+    "pages/user-index/propertyDecoration/propertyDecoration",
+    "pages/user-index/propertyDetail/propertyDetail"
+  ],
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom",
+    "van-toast": "/miniprogram_npm/@vant/weapp/toast/index",
+    "van-dialog": "/miniprogram_npm/@vant/weapp/dialog/index",
+    "van-dropdown-menu": "/miniprogram_npm/@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "/miniprogram_npm/@vant/weapp/dropdown-item/index"
+  },
+  "useExtendedLib": {
+    "weui": true
+  },
+  "sitemapLocation": "sitemap.json"
+}

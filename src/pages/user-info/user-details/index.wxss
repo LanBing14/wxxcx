@@ -1,0 +1,29 @@
+/* pages/user-info/user-details/index.wxss */
+.recordPage{
+  background-color: #f5f6fa;
+}
+.to-main{
+  height: 87vh;
+  overflow: scroll;
+  /* over-flow:usit; */
+}
+ .header{
+   background-color: #11c2b8;
+}
+.userAvatarUrl-con{
+   width: 130rpx;
+   height: 130rpx;
+   border-radius: 10px;
+   float: right;
+   overflow: hidden;
+}
+.myValueClass{
+  font-size: 26rpx;
+  color: #666666;
+}
+van-cell{
+  display:block;
+}
+.add-margin-top{
+  margin-top: 22rpx;
+}

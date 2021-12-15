@@ -1,0 +1,39 @@
+<!--pages/user-info/visitorCode/visitorCode.wxml-->
+<!--<view class="header">
+    <cu-custom isBack="true" isBackIcon="true" backgroundColor="#11c2b8">
+      <text slot="backText">预约码</text>
+    </cu-custom>
+  </view>-->
+    <cu-custom isBack="{{true}}"  bgColor="qlan"  isBackIcon="true" class="record-custom">
+        <view slot="backText">
+            <text class="titleName">预约码</text>
+        </view>
+    </cu-custom>
+  <view class="visitorCode-container">
+   <view class="flex-container"><image src="{{appImgUrl}}/images/user/ruyuan@2x.png" style="width:40rpx;height:40rpx;margin-right:20rpx"></image>入园码</view>
+   <view class="userInfo">
+   <view class="users">
+    <view class="name">{{visitors.VISITOR_NAME}}</view>
+    <view class="info">到访时间：<text>{{visitors.SUBSCRIBE_TIME || "--"}}</text></view>
+    <view class="info">
+      <view >到访企业：</view><text style="word-wrap:break-word;width: 240rpx">{{visitors.VISITING_SUBJECT || "--"}}</text></view>
+    <view class="info">入园车牌：<text>{{visitors.CAR_NUMBER || "--"}}</text></view>
+   </view>
+   
+  <view class="code">
+   <image src="{{visitors.filePath}}" mode="aspectFit"></image>
+  </view>
+  <view class="btn-wrap">
+    <van-button  bindtap="jumpToVisitorAppointment"  color="#b7edea" custom-style="color:#10c2b8;border-radius:5px;width:308rpx;margin-right:24rpx;" size="small" type="default">更新入园码</van-button>
+    <van-button
+     bindtap="downFiles"
+     color="#10c2b8" custom-style="border-radius:5px;width:308rpx;" size="small" type="default"
+    >下载入园码</van-button>
+  </view>
+   </view>
+   <view class="userInfo tips">
+   <view style="color:#11c2b8;font-size: 24rpx;">温馨提示</view>
+    <view>1、请申请人确保所有信息真实性，包括<text style="color:#11c2b8">车牌号</text>信息；</view>
+    <view>2、此申请单以填写“计划到访时间”为准，<text style="color:#11c2b8">仅当天有效</text>。</view>
+   </view>
+  </view>

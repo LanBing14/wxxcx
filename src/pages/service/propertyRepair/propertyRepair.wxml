@@ -1,0 +1,75 @@
+<view>
+	<view wx:if="{{isParkShow==false&&isRoomShow==false}}" class="propertyRepair_wrap">
+		<view>
+			<view class="header">
+				<cu-custom isBack="{{true}}" bgColor="qlan"  isBackIcon="true" class="record-custom">
+					<view slot="backText">
+						<text class="titleName">物业报修</text>
+					</view>
+				</cu-custom>
+			</view>
+			<view class="main_content">
+				<form catchsubmit="formSubmit">
+					<view class="main_content_title">报修基本信息</view>
+					<view class="bottom_main">
+						<view class="cu-form-group" bindtap="showParkChoose">
+							<view class="title"><text class="star">*</text>所属园区</view>
+							
+							<view class="picker">
+								{{getParkValue.label}}
+							</view>
+							<text class="cuIcon-right"></text>
+						</view>
+						<view class="cu-form-group" bind:tap="showRoomChoose">
+							<view class="title"><text class="star">*</text>报修房间</view>
+						
+							<view class="picker">
+								{{rommsNameStr}}
+							</view>
+							<text class="cuIcon-right"></text>
+						</view>
+					</view>
+
+					<view class="main_content_title">报修内容</view>
+
+					<view>
+						<view class="form-group">
+							<view class="title"><text class="star">*</text>内容描述</view>
+							<textarea bindinput="changeContent" class="textA" name="content" maxlength="200" value="{{form.content}}"  placeholder="请填写"></textarea>	
+						</view>
+
+						<view class="form-group">
+							<view class="title"><text class="star"></text> 故障图片<text class="max-text">（最多5张）</text></view>
+							 <van-uploader 
+								max-count="5" 
+								accept="image"
+								multiple
+								file-list="{{ fileList }}"
+								bind:after-read="afterRead" 
+								max-size="10485760"
+								deletable="{{ true }}"
+								use-before-read
+								bind:delete="deleteFile"
+								bind:before-read="beforeRead"
+							/> 
+
+						</view>
+					</view>
+			
+					<view class="btn_wrap">
+						<van-button form-type="submit" disabled="{{lock}}" custom-class="submitBtn" block>提交</van-button>
+					</view>
+				</form>
+			</view>	
+		</view>
+	</view>
+
+
+	<!--选择房间-->
+	<view wx:if="{{isRoomShow}}">
+		<houseSources roomList="{{roomList}}" bind:getR="getRr" bind:hideHouseSources="hideHouse" hasChoosed="{{roomsData}}"></houseSources>
+	</view>
+
+
+
+</view>

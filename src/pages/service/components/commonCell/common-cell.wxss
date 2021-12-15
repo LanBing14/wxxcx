@@ -1,0 +1,6 @@
+/* pages/service/components/commonCell/common-cell.wxss */
+.van-cell-text{
+    line-height: 50rpx;
+    color: #222222;
+    font-size: 28rpx;
+}

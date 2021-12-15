@@ -1,0 +1,60 @@
+/* pages/user-index/home-ewm/home-ewm.wxss */
+.header{
+  background-color: #10c2b8;
+}
+.backText{
+  display: contents;
+}
+.list-li{
+  display: flex;
+  padding: 23rpx; 
+  background-color: #fff;   
+  border-radius: 10rpx;
+}
+.userAvatarUrl-l{
+  width: 128rpx;
+  height: 128rpx;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-right: 36rpx;
+}
+.list-li image{
+  margin-right: 23rpx;
+}
+.li-right{
+  display:flex;
+  justify-content: space-evenly;
+  flex-flow: column;
+  font-size: 28rpx;
+  color: #666666;
+  
+}
+.li-top{  
+  font-size: 36rpx;
+  color: #222222;
+}
+.orcodeBox{
+  margin-top: 155rpx;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.orcodeText{
+   font-size: 28rpx;
+   color: #999;
+   margin-top: 30rpx;
+}
+.orcodeText text{
+  color: #f19f10;
+  position: relative;
+  display: inline-block;
+}
+.text{
+  height: 27rpx;
+  width: 2rpx;
+  margin: 0 20rpx;
+  vertical-align: middle;
+  border-left: 1rpx solid #ddd;
+}

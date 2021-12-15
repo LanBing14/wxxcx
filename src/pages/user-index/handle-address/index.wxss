@@ -1,0 +1,67 @@
+/* pages/user-index/handle-address/index.wxss */
+.scrollPage{
+  /* background-color: #fff; */
+}
+.header {
+  background-color: #10c2b8;
+}
+
+.backText {
+  display: contents;
+}
+.main{
+  /* padding: 32rpx; */
+}
+.asterisk{
+  color: red;
+}
+view .van-col--8{
+  margin-top: 15rpx;
+}
+view .van-row{
+  padding: 32rpx;
+  background: #fff;
+  display: block;
+}
+view .van-row:last-child{
+  margin-top: 20rpx;
+}
+.picker{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* height: 45rpx; */
+  border-bottom: 1px solid #ccc;
+  padding: 22rpx;
+  color: #000;
+}
+.chose{
+  color: #ccc;
+}
+.mgT7{
+  margin:0 32rpx;
+  margin-top: 70rpx;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex .van-button{
+  width: 331rpx;
+  border-radius: 32rpx;
+}
+view .van-button{
+  background-color: #10c2b8;
+  color: #fff;
+  border: 0px;
+}
+
+.bt1 .van-button{
+  background-color: #b7edea;
+  color: #00b4aa;
+}
+.boderR .van-button{
+  border-radius: 32rpx;
+  width: 100%;
+}

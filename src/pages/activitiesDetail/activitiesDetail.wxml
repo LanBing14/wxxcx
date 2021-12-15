@@ -1,0 +1,147 @@
+<cu-custom isBack="{{true}}"  bgColor="qlan"  isBackIcon="true" class="record-custom">
+    <view slot="backText">
+        <text class="titleName">活动详情</text>
+    </view>
+</cu-custom>
+<view class="title_all_wrap">
+    <image src="{{appImgUrl}}images/serive/ew/activity/iconWen.png"  style="width:40rpx;height:35rpx"/>
+    <text class="font">{{modelForm.ACTIVITY_NAME}}</text>
+</view>
+<!-- 图片展示 -->
+<view class="image_show">
+    <swiper wx:if="{{modelForm.images.length}}" class="screen-swiper round-dot " indicator-dots="{{show}}" circular="{{true}}"
+  autoplay="{{true}}" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3"
+  indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{modelForm.images}}" wx:key>
+    <!-- <van-image width="100" height="100" src="" /> -->
+    <image src="{{viewImgUrl }}{{ item.filePath }}" mode="aspectFill" class="swiper_img"> </image>
+  </swiper-item>
+</swiper>
+    <!-- <image src="{{appImgUrl}}images/serive/ew/activity/activity_img.jpg" mode="aspectFill"  style="width:100%"/> -->
+</view>
+<!-- 时间地点 -->
+<view class="timeAndPosition">
+    <view class="font_tips" wx:if="{{labelArr.length > 0}}">
+        <text class="tip" wx:for="{{labelArr}}" wx:key wx:if="{{item}}">{{item}}</text>
+        <!-- <text class="tip">{{modelForm.ACTIVITY_LABEL}}</text> -->
+    </view>
+    <view class="font_wrap">
+        <text class="font1">活动时间：</text>
+        <text class="font2"> {{modelForm.ACTIVITY_START_TIME}}  ~ {{modelForm.IS_LIMITED == '1' ? '不限' : modelForm.ACTIVITY_END_TIME}} </text>
+    </view>
+    <view class="font_wrap">
+        <text class="font1">活动地点： </text>
+        <text class="font2">{{modelForm.ACTIVITY_LOCATION}}</text>
+    </view>
+    <view class="bm_wrap" wx:if="{{modelForm.IS_SIGN == '1'}}">
+        <text class="bming_number">当前已报名：{{modelForm.COUNTS}}</text>
+    </view>
+</view>
+<!-- 活动详情 -->
+<view class="detail_wrap">
+    <view class="detail_title">
+        <text>活动详情</text>
+        <image class="heng" src="{{appImgUrl}}images/serive/ew/activity/heng.jpg"  style="width:30rpx;height:5rpx"/>
+    </view>
+    <view class="main_content">
+        <rich-text nodes="{{resultHtml}}" id="comment-rich-text"
+            class="r-content {{!!extendStr ? 'r-content-simple' : ''}}"
+            style="-webkit-line-clamp:{{extendStrBtn?12:'initial'}}"></rich-text>
+       <view class="showMore"  wx:if="{{showMore}}"  bindtap="tapViewExtendComment" >
+            <view class="more">
+                {{extendStrBtn?'更多详情':'收起'}}
+                <van-icon name="arrow-down" wx:if="{{extendStrBtn}}" />
+                <van-icon name="arrow-up" wx:if="{{!extendStrBtn}}"/>
+            </view>
+        </view>
+    </view>
+
+</view>
+
+<view class="detail_wrap">
+    <view class="detail_title">
+        <text>附件信息</text>
+        <image class="heng" src="{{appImgUrl}}images/serive/ew/activity/heng.jpg"  style="width:30rpx;height:5rpx"/>
+    </view>
+    <view class="fDetail">
+        <view bindtap="downloadImg" wx:for="{{modelForm.uploadFiles}}" wx:key data-url="{{item.filePath}}">
+            <image class="file" src="{{appImgUrl}}images/serive/ew/activity/file.png"  style="width:21rpx;height:24rpx"/>
+            <text>{{item.fileName}}</text>
+        </view>
+    </view>
+</view>
+<view class="detail_wrap">
+    <view class="detail_title">
+        <text>活动联系人</text>
+        <image class="heng" src="{{appImgUrl}}images/serive/ew/activity/heng.jpg"  style="width:30rpx;height:5rpx"/>
+    </view>
+
+    <view class="font_wrap" wx:if="{{!!modelForm.ACTIVITY_CONTACTS}}">
+        <text class="font1">联系人：</text>
+        <text class="font2"> {{modelForm.ACTIVITY_CONTACTS}}</text>
+    </view>
+    <view class="font_wrap" wx:if="{{!!modelForm.PHONE}}">
+        <text class="font1">手机号码：  </text>
+        <text class="font2">{{modelForm.PHONE}}</text>
+    </view>
+    <view class="font_wrap" wx:if="{{!!modelForm.E_MAIL}}">
+        <text class="font1">联系邮箱：  </text>
+        <text class="font2">{{modelForm.E_MAIL}}</text>
+    </view>
+</view>
+<view class="btn_wrap">
+    <van-button color="#10c2b8" bind:click="bm_btn" wx:if="{{isShowBm}}" disabled="{{!isShowBm_btn}}" custom-class="submitBtn" block>{{isBmText}}</van-button>
+    <van-button color="#10c2b8" bind:click="quxiao_btn" wx:if="{{isquxiao}}" disabled="{{!quxiao}}"  block>{{quxiaoText}}</van-button>
+</view>
+
+<!-- 
+底部弹框
+-->
+<van-popup
+  class="van-share-bottom"
+  show="{{ reportShow }}"
+  position="bottom"
+  overlay="{{ overlay }}"
+  duration="{{ duration }}"
+  bind:close="onClickOverlay"
+  close-on-click-overlay="{{overlay}}"
+>
+<view class="bottom-header">
+    <image  src="../../addImg/bmxxtx.png" style="width:42rpx;height:52rpx;margin-right:20rpx;" ></image>
+    <view>报名信息填写</view>
+</view>
+  
+ <form catchsubmit="formSubmits" >
+     <view class='form-list'>
+   
+        <!-- 访客姓名-->
+        <view class="form_item">
+            <view class="form_label"><text class="required">* </text><text class="form_item_content"> 姓名</text></view>
+            <input bindinput="changeName"  maxlength="15" name="name" class="inputCommon" type="text" value="{{form.name}}" placeholder="请填写"/>
+        </view>
+
+        <!--填报联系电话-->
+        <view class="form_item">
+            <view class="form_label"><text class="required">* </text><text class="form_item_content">手机号</text></view>
+            <input bindinput="changePhone"  maxlength="11" class="inputCommon" type="text" name="phone" value="{{form.phone}}" placeholder="请填写"/>
+        </view>
+
+        <!--填报所在企业-->
+        <view class="form_item">
+            <view class="form_label"><text class="form_item_content">所在企业</text></view>
+            <input bindinput="changeCompany"   class="inputCommon" type="text" name="company" value="{{form.company}}" placeholder="请填写"/>
+        </view>
+
+        <!--填报所在部门-->
+        <view class="form_item">
+            <view class="form_label"><text class="form_item_content">所在部门</text></view>
+            <input bindinput="changeDepart"  class="inputCommon" type="text" name="dept" value="{{form.dept}}" placeholder="请填写"/>
+        </view>
+
+        <view class="btn_wrap" style="padding: 0;margin-bottom:68rpx;">
+            <van-button form-type="submit"  custom-class="submitBtn" block >提交</van-button>
+        </view>
+    </view>
+
+  </form>
+</van-popup>

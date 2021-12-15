@@ -1,0 +1,127 @@
+/* pages/service-goods/record/index.wxss */
+.recordPage{
+    background-color: #f5f6fa;
+  height: calc(100vh - 100rpx) !important;
+  }
+  .to-main{
+    height: 84vh;
+    overflow: scroll;
+    /* over-flow:usit; */
+  }
+   .header{
+    background-color: #ec414d !important;
+  }
+  .searchIcon{
+    width: 61rpx;
+    height: 37rpx;
+  }
+  .van-search{
+    padding: 0;
+  }
+  selecter{
+    float: right;
+  }
+
+
+  .main{
+    margin: 24rpx;
+  }
+  .recordLi{
+    background-color: #fff;
+    padding: 24rpx;
+    margin-top: 24rpx;
+    border-radius: 14rpx;
+    padding-top: 0rpx;
+  }
+  .recordLi image{
+    width:163rpx;
+    height:100rpx;
+    /* text-align: center; */
+  }
+  .data-right{
+    margin-left: 22rpx;
+    width: 100%;
+  }
+  .list-data{
+    display:flex;
+    font-size: 20rpx;
+    color: #999999;
+  }
+  .data-title{
+    font-size: 18rpx;
+    color: #666666;
+    display: inline-block;
+    padding: 24rpx 0;
+    width: 100%;
+  }
+  .data-title text{
+    display: block;
+    float: right;
+  }
+  .redText{
+    color: #ec414d;
+  }
+  .list-data text{
+    display: block;
+  }
+  .list-data text:first-child{
+    font-size: 24rpx;
+    color: #333333;
+    /* padding: 10rpx 0; */
+  }
+  .searching{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .searching image{
+    width: 48rpx;
+    height: 36rpx;
+  }
+
+  .yellowT{
+    background-color: #FCA723 !important;
+  }
+  .greenT{
+    background-color: #4cd964 !important;
+  }
+  .pinkT{
+    background-color: #fd7a83 !important;
+  }
+  .blueT{
+    background-color: #30d3c9 !important;
+  }
+  .purpleT{
+    background-color: #b069f3 !important;
+  }
+  .data-bottom{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5rpx;
+    height: 55rpx;
+  }
+  .line-forMe{
+    color: #ec414d;
+  }
+  .finishMark{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+  }
+  .mymeun{
+    display: flow-root;
+    margin-top:24rpx;
+  }
+  .text-gray{
+    display:inline-block !important;
+    color: #ec414d;
+  }
+
+  .item-image {
+    width: 150rpx;
+    height: 100rpx;
+    flex: 0 0 150rpx;
+}

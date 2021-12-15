@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "cu-custom":"../../../colorui/components/cu-custom",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-divider": "@vant/weapp/divider/index"
+  }
+}

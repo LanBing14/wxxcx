@@ -1,0 +1,17 @@
+
+.submitBtn {
+  background: #10c2b8!important;
+  height: 80rpx!important;
+  border-radius: 8rpx!important;
+
+}
+.btn_wrap{
+  margin-top: 60rpx;
+  padding: 0 24rpx;
+  padding-bottom: 60rpx;
+}
+.submitBtn .van-button__text{
+  color:#fff!important
+}
+
+

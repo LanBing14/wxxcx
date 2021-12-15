@@ -1,0 +1,167 @@
+.title_all_wrap{
+    display: flex;
+    align-items: center;
+    color: #222222;
+    font-size: 32rpx;
+    padding:27rpx 32rpx;
+}
+.title_all_wrap .font{
+    margin-left: 19rpx;
+}
+
+.solicit_main {
+    background-color: #fff;
+    padding: 60rpx 56rpx 60rpx;
+}
+.solicit_main .solicit_title{
+    color: #222222;
+    font-size: 32rpx;
+    line-height: 48rpx;
+}
+
+.solicit_content{
+    color: #666666;
+    font-size: 22rpx;
+    line-height: 44rpx;
+  
+}
+
+
+.link_more{
+    font-size: 22rpx;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #00b4aa;
+}
+
+.endDate{
+    color: #222222;
+    font-size: 28rpx;
+}
+
+.detailDate{
+    color: #666666;
+    font-size: 28rpx;
+}
+
+.endDate{
+    margin-top: 20rpx;
+}
+
+
+.infor_content{
+    padding: 60rpx 32rpx 0;
+    background:#fff;
+    margin-top: 24rpx;
+}
+.infor_title{
+    color: #00b4aa;
+    font-size: 32rpx;
+    line-height: 32rpx;
+}
+.form_item{
+    margin-top: 33rpx;
+}
+.inputCommon{
+    width: 100%;
+	height: 90rpx;
+	background-color: #ffffff;
+    border: solid 1px #cccccc;
+    padding-left: 32rpx;
+    font-size:30rpx;
+}
+
+.required{
+    color: #f73048;
+    font-size: 28rpx;
+}
+.form_label{
+    margin-bottom: 20rpx;
+}
+.form_item_content{
+    font-size: 32rpx;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #222222;
+}
+.form_item_bz{
+    font-size: 28rpx;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #999999;
+}
+
+.radioFont{
+    color: #222222;
+    font-size: 30rpx;
+}
+
+.radio_wrap{
+    margin-bottom: 52rpx;
+}
+
+.submitBtn{
+    width: 100%;
+      height: 80rpx;
+      background-color: #10c2b8;
+  }
+  
+.submitBtn {
+    background: #10c2b8!important;
+    height: 80rpx!important;
+    border-radius: 8rpx!important;
+}
+.btn_wrap{
+    margin-top: 60rpx;
+    padding-bottom: 60rpx;
+}
+.submitBtn .van-button__text{
+    color:#fff
+}
+
+.radio_heng{
+    /* width: 140rpx; */
+    margin-bottom: 22rpx;
+}
+.checkbox_style{
+    margin-bottom: 22rpx;
+}
+.checkbox_style{
+    margin-bottom: 22rpx;
+}
+
+.viewInput{
+   line-height: 90rpx;
+}
+
+.placeholder{
+    color:#787d85
+}
+
+.vanIcon:before {
+    position: relative;
+    top: 2rpx;
+}
+
+.timeChooseInput{
+    position: relative;
+}
+
+.timeIcon{
+    position: absolute;
+    right:30rpx;
+    width: 38rpx;
+    height: 39rpx;
+    top:23rpx;
+}
+
+.pullIcon{
+    position: absolute;
+    right:30rpx;
+    width: 23rpx;
+    height: 13rpx;
+    top:38rpx;
+}
+.pullDownInput{
+    padding-right: 67rpx;
+}

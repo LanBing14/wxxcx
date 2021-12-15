@@ -1,0 +1,53 @@
+<!-- pages/user-goods/details/index.wxml -->
+<scroll-view scroll-y class="scrollPage recordPage">
+  <view class="header">
+    <cu-custom isBack="true" class="record-custom">
+      <view slot="content">{{pageType=='0'?'商品兑换':'措施详情'}}</view>
+    </cu-custom>
+  </view>
+  <view class="pageMain">
+
+    <view class="main">
+      <view class="main-top">
+        <view style="display: inline-grid;">
+          <view class="nameText">
+            <text>{{object.SERVICE_NAME}}</text>
+            <text>{{object.MEASURE}}</text>
+            <view class="cu-tag ">{{object.statusStr}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="ruleCol" wx:if="{{object.LY_STATUS=='0' && object.LYJZ_TIME}}">
+        <view>请于{{object.LYJZ_TIME}}前完成</view>
+      </view>
+      <view class="ruleCol" wx:if="{{object.LY_STATUS=='1'||object.LY_STATUS=='3'}}">
+        <view>已于{{object.LY_TIME}}前完成</view>
+      </view>
+      <view class="ruleCol" wx:if="{{object.LY_STATUS=='2'}}">
+        <view wx:if="{{object.LYJZ_TIME}}">已于{{object.LY_TIME}}前完成（履约截止时间：{{object.LYJZ_TIME}}）</view>
+        <view wx:if="{{!object.LYJZ_TIME}}">已于{{object.LY_TIME}}前完成</view>
+      </view>
+    </view>
+    <button wx:if="{{object.LY_STATUS=='0'}}" class=" useBtn" bindtap="ly">履约</button>
+    <button wx:if="{{(object.LY_STATUS=='1'||object.LY_STATUS=='2'||object.LY_STATUS=='3'||object.LY_STATUS=='8')&&!object.SERVICE_MARK}}"
+            class=" useBtn" catchtap="evaluate" data-detailId="{{object.CRID}}">立即评价</button>
+    <view wx:if="{{showQRCode}}" class="in-code">
+      <canvas class="canvas-code" canvas-id="myQrcode" style="background:#fff;width: 200px;height: 200px;"/>
+    </view>
+    <view class="footer">
+      <text class="footer-text">服务方： {{object.JGMC}}</text>
+      <text class="footer-text">统一社会信用代码：{{object.TYSHXYDM}}</text>
+      <van-divider />
+      <view class="footer-nun">
+        <text>服务编号</text>
+        <text>{{object.SERVICE_BH}}</text>
+      </view>
+      <view class="footer-nun" style="margin-top:18rpx">
+        <text>创建时间</text>
+        <text>{{object.CRCREATETIME}}</text>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>
+<van-dialog id="van-dialog"/>

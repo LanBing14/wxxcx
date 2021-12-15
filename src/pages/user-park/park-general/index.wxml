@@ -1,0 +1,79 @@
+<!--pages/user-park/park-general/index.wxml-->
+<view class="header">
+  <cu-custom isBack="{{true}}" isBackIcon="{{true}}" bgColor="qlan" class="record-custom">
+    <view slot="backText" class="backText">
+      园区概况
+    </view>
+  </cu-custom>
+</view>
+<!-- <van-empty description="暂无数据" wx:if="{{swiperList.length}}" /> -->
+<swiper wx:if="{{swiperList.length}}" class="screen-swiper round-dot " indicator-dots="{{show}}" circular="{{true}}"
+  autoplay="{{true}}" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3"
+  indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{swiperList}}" wx:key>
+    <image src="{{item.url}}" mode="aspectFill" class="swiper_img"> </image>
+  </swiper-item>
+</swiper>
+<view class="main">
+  <view class="title">中国苏州创业园
+    <text></text>
+  </view>
+  <view class="row">
+
+    <view class="flex">
+      <view>
+        <text class="col-title">总占地</text>
+        <text class="col-mes">13.5 万㎡</text>
+      </view>
+      <view>
+        <text class="col-title">总建筑面积</text>
+        <text class="col-mes">8 万㎡</text>
+      </view>
+      <view>
+        <text class="col-title">年产值</text>
+        <text class="col-mes">40.35 亿元</text>
+      </view>
+    </view>
+    <view class="flex">
+      <view>
+        <text class="col-title">创新创业机构数</text>
+        <text class="col-mes">41 家</text>
+      </view>
+      <view>
+        <text class="col-title">引进高科技企业</text>
+        <text class="col-mes">41 家</text>
+      </view>
+      <view>
+        <text class="col-title">专利产品</text>
+        <text class="col-mes">41 家</text>
+      </view>
+    </view>
+  </view>
+  <text class="introText">
+    苏州创业园是苏州高新技术创业服务中心、苏州留学人员创业园、 苏州创业园科技发展有限公司的总称，总建筑面积18万平方米， 由5幢高标准研发大楼组成。位于苏州高新区竹园路，东依狮山
+    商业板块、南邻国际教育园区、西望高新区政府,地理位置优越， 大量科技企业在此成功创业。 苏州创业园是苏州高新技术创业服务中心、苏州留学人员创业园、
+    苏州创业园科技发展有限公司的总称，总建筑面积18万平方米，由5幢高标准研发大楼组成。位于苏州高新区竹园路，东依狮山 商业板块、南邻国际教育园区、西望高新区政府,地理位置优越， 大量科技企业在此成功创业。
+    苏州创业园是苏州高新技术创业服务中心、苏州留学人员创业园、苏州创业园科技发展有限公司的总称，总建筑面积18万平方米， 由5幢高标准研发大楼组成。位于苏州高新区竹园路，东依狮山
+    商业板块、南邻国际教育园区、西望高新区政府,地理位置优越， 大量科技企业在此成功创业。
+  </text>
+  <view class="title">
+    园区改革
+    <text></text>
+  </view>
+  <view class="timeList">
+    <!-- <view class="line"></view> -->
+    <view class="time-line" wx:for="{{steps}}" wx:key wx:for-index="ind">
+      <text class="line-left" >
+        <text class="tag" wx:if="{{ind%2 === 0}}" >{{item.text}}</text>
+        {{ind%2 === 1? item.desc:''}}
+     </text>
+      <view class="pos">
+        <text class="circl"></text>
+        <text class="lin" wx:if="{{!(ind === steps.length-1)}}"></text>
+      </view>
+      <text class="line-right">
+        <text class="tag"  wx:if="{{ind%2 === 1}}">{{item.text}}</text>
+         {{ind%2===0 ? item.desc:''}}</text>
+    </view>
+  </view>
+</view>

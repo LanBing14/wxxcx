@@ -1,0 +1,61 @@
+<!-- pages/user-goods/details/index.wxml -->
+<scroll-view scroll-y class="scrollPage recordPage">
+  <view class="header">
+    <cu-custom isBack="true" class="record-custom">
+      <view slot="content">兑换详情</view>
+    </cu-custom>
+  </view>
+  <view class="pageMain">
+
+    <view class="main">
+      <view class="main-top">
+        <van-image width="150rpx" height="100rpx" fit="fit" src="{{object.FILE_PATH}}" />
+        <view style="display: inline-grid;">
+          <view class="nameText">
+            <text>{{object.SPMC}}</text>
+            <view class="cu-tag ">{{status}}</view>
+          </view>
+          <view class="price-box">
+            ￥ <text class="price">{{object.DHJG == null?'0':object.DHJG}}</text>
+            <text class="oldPrice" wx:if="{{object.SPYJ}}"> ￥ {{object.SPYJ}}</text>
+            <van-icon wx:if="{{tzxq}}" class="arrowIcon" name="arrow" bindtap="toGD" data-id="{{object.SPID}}"/>
+          </view>
+        </view>
+      </view>
+      <text class="companayName">{{object.JGMC}}</text>
+      <view class="ruleCol">
+        <view class="redDot">服务地址:</view>
+        <view>{{object.JY_ADDRESS}}</view>
+      </view>
+      <view class="ruleCol">
+        <view class="redDot">使用规则:</view>
+        <view>{{object.SYKSR}}-{{object.SYJZR}}</view>
+        <view wx:if="{{object.DHHYXQ}}" style="margin-left:110rpx">兑后{{object.DHHYXQ}}{{object.DHHYXQ_DW}}失效</view>
+      </view>
+    </view>
+    <button wx:if="{{syShow}}" class=" useBtn" bindtap="handelUse" data-id="{{object.SPID}}">{{syxx}}</button>
+    <view wx:if="{{ewm}}" class="qrcodeBox">
+      <view class="in-code" style="text-align: center;">
+        <canvas class="canvas-code"canvas-id="myQrcode" style="background:#fff;width: 180px;height: 180px;"/>
+      </view>
+    </view>
+    <view class="footer">
+      <text class="footer-text">服务方： {{object.JGMC}}</text>
+      <text class="footer-text">统一社会信用代码：{{object.TYSHXYDM}}</text>
+      <van-divider />
+      <view class="footer-nun">
+        <text>服务编号</text>
+        <text>{{object.SEARCH_BH}}</text>
+      </view>
+      <view class="footer-nun" style="margin-top:18rpx">
+        <text>创建时间</text>
+        <text>{{object.DHSJ}}</text>
+      </view>
+      <view class="footer-nun" style="margin-top:18rpx" wx:if="{{status=='已使用'}}">
+        <text>使用时间</text>
+        <text>{{object.SYSJ}}</text>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>

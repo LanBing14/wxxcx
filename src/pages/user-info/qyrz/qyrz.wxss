@@ -1,0 +1,58 @@
+
+.checkStatus-wrap{
+  padding: 30rpx;
+}
+.checkStatus{
+  width: 700rpx;
+	height: 640rpx;
+	background-color: #fff;
+	border-radius: 16px;
+	position: relative;
+	overflow: hidden;
+	padding: 100rpx 30rpx 100rpx;
+}
+.status{
+	position:absolute;
+	width: 200px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	font-size: 14px;
+	color:#fff;
+	transform: rotate(45deg);
+	top: 20px;
+	right: -60px;
+}
+.dshStatus{
+	background-color: #ffad37;
+}
+.bdStatus,.yirenzhengStatus{
+	background-color: #10c2b8;
+}
+.cxStatus{
+	background-color: #f73048;
+}
+.image-wrap{
+	width: 80px;
+	height: 80px;
+	margin: 0 auto 50rpx;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #f3f3f4;
+}
+.no-image{
+	background:#f8a3b2;
+	color:#fff;
+	padding: 20px;
+	font-size: 16px;
+	text-align: center
+}
+.title{
+	font-size:18px;
+	text-align: center; 
+}
+.tc{
+	text-align: center;
+}

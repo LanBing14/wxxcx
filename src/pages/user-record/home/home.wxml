@@ -1,0 +1,83 @@
+<!--pages/service-goods/record/index.wxml-->
+<scroll-view scroll-y class="scrollPage recordPage" bindscrolltolower="loadMore" refresher-enabled="{{true}}"
+             refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="onRefresh">
+  <view class="header">
+    <cu-custom isBack="{{false}}" class="record-custom">
+      <view slot="content">消费记录</view>
+    </cu-custom>
+  </view>
+  <view class="to-main">
+    <view>
+      <van-search class="recoredPage" style="width:650rpx" model:value="{{ keyword }}" shape="round" background="#fff"
+        clearable="false" use-action-slot placeholder="请输入搜索关键词" bind:search="keySearch" bind:cancel="keyCancel"
+        use-left-icon-slot>
+        <view slot="action" bind:tap="keyClick" style="color:#666666">搜索</view>
+        <view slot="left-icon" bind:tap="keyClick" class="searching">
+          <image mode="aspectFit" src="{{appImgUrl}}images/xfd/p__searching.png"></image>
+        </view>
+      </van-search>
+    </view>
+    <van-tabs active="{{ active }}" bind:change="tabChange">
+      <van-tab title="进行中" name="a">
+        <!-- 下拉菜单 -->
+        <van-dropdown-menu class="record-van-menu mymeun">
+          <van-dropdown-item value="{{ selectValue }}" options="{{ optionA }}" bind:change="selectChange" />
+        </van-dropdown-menu>
+        <!-- 列表 -->
+        <template is="recordMainList" data="{{list}}" />
+
+      </van-tab>
+      <van-tab title="已完成" name="b">
+        <!-- 下拉菜单 -->
+        <van-dropdown-menu class="record-van-menu mymeun">
+          <van-dropdown-item value="{{ selectValue }}" options="{{ optionB }}" bind:change="selectChange"  />
+        </van-dropdown-menu>
+        <!-- 列表 -->
+        <template is="recordMainList" data="{{list}}" />
+      </van-tab>
+      <van-tab title="已取消" name="c">
+        <!-- 下拉菜单 -->
+        <van-dropdown-menu class="record-van-menu mymeun">
+          <van-dropdown-item value="{{ selectValue }}" options="{{ optionC }}" bind:change="selectChange"  />
+        </van-dropdown-menu>
+        <!-- 列表 -->
+        <template is="recordMainList" data="{{list}}" />
+      </van-tab>
+    </van-tabs>
+  </view>
+</scroll-view>
+
+<template name="recordMainList">
+  <!-- 列表 -->
+  <view class="main">
+    <view wx:if="{{list.length}}" data-list="{{list}}" wx:for="{{list}}" wx:key class="recordLi" bindtap="handelDetail" data-detailid="{{item.CRID}}" data-fwfs="{{item.FWFS}}" data-spdhid="{{item.XYJ_SPDH_ID}}">
+      <view class="data-title">
+        {{item.SERVICE_BH}}
+        <text class="{{(item.LY_STATUS==2|item.LY_STATUS==3)?'redText':''}}">{{item.statusstr}}</text>
+      </view>
+      <view class="list-data">
+        <image class="item-image" mode="aspectFit" src="{{item.FILE_PATH}}" ></image>
+        <view class="data-right">
+          <text>{{item.SERVICE_NAME}}</text>
+          <view class="data-bottom">
+            <view
+              class="cu-tag cuTag {{item.DICT_KEY=='xyyou'?'yellowT':item.DICT_KEY=='xypi'?'greenT':item.DICT_KEY=='xyzu'?'pinkT':item.DICT_KEY=='xydai'?'blueT':'purpleT'}}">
+              {{item.DICT_VALUE}}</view>
+            <view wx:if="{{(item.LY_STATUS=='1'||item.LY_STATUS=='2'||item.LY_STATUS=='3'||item.LY_STATUS=='8')&&item.SERVICE_MARK}}" class="finishMark">
+              <van-rate readonly value="{{ item.SERVICE_MARK }}" />
+            </view>
+            <button wx:if="{{item.LY_STATUS=='0'}}" class="cu-btn round line-forMe">履约</button>
+            <button wx:if="{{(item.LY_STATUS=='1'||item.LY_STATUS=='2'||item.LY_STATUS=='3'||item.LY_STATUS=='8')&&!item.SERVICE_MARK}}" class="cu-btn round line-forMe"
+                    catchtap="evaluate" data-detailId="{{item.CRID}}">评价</button>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="emptyTable" style="margin-top:10vh" wx:if="{{!list.length}}">
+      <view style="height:300rpx;margin:auto;">
+        <image style="height:100%;width: 100%;" mode="aspectFit" src="{{appImgUrl}}images/xfd/emptyThings.png"></image>
+      </view>
+      <text style="width: 100%; display: inline-block;position:relative;text-align:center; color: #676565;">暂无数据</text>
+    </view>
+  </view>
+</template>

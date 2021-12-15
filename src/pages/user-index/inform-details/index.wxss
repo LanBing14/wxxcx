@@ -1,0 +1,17 @@
+/* pages/user-index/inform-details/index.wxss */
+.header {
+  background-color: #10c2b8;
+}
+view .van-cell__title{
+  font-size: 28rpx;
+  color: #222;
+}
+view .van-cell__value{
+  font-size: 26rpx;
+  color: #666;
+}
+.text{
+  padding: 33rpx;
+  font-size: 26rpx;
+  color: #00b4aa;
+}

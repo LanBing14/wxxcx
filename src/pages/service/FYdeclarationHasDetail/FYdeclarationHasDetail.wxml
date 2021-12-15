@@ -1,0 +1,49 @@
+<cu-custom isBack="{{true}}"  bgColor="qlan"  isBackIcon="true" class="record-custom">
+    <view slot="backText">
+        <text class="titleName">防疫申报</text>
+    </view>
+</cu-custom>
+<view class="title_all_wrap">
+    <image src="{{appImgUrl}}images/serive/FYdeclarationDetail/fyicon.png"  style="width:40rpx;height:40rpx"/>
+    <text class="font">防疫专题</text>
+</view>
+<view class="solicit_main">
+    <view class="solicit_title">
+        {{declarationSubject}}
+    </view>
+    <view class="solicit_content">
+
+        <view wx:if="{{!isShouShow}}">{{declarationExplain}}<text class="link_more" bind:tap="showMoreFont" wx:if="{{isShowDetailBtn}}">详情</text><van-icon wx:if="{{isShowDetailBtn}}" name="arrow" color="#00b4aa" custom-class="vanIcon" /></view>
+        <view wx:else>{{fullDeclarationExplain}}  <text class="link_more"  bind:tap="shouFont" wx:if="{{isShouShow}}">收起</text><van-icon wx:if="{{isShouShow}}" name="arrow-left" color="#00b4aa" custom-class="vanIcon"/></view>
+        <!--<view class="endDate">截止日期： <text class="detailDate">2020-10-10</text></view>-->
+    </view>
+</view>
+<view class="infor_content">
+    <view class="infor_title">防疫申报内容</view>
+    <view class="infor_line"></view>
+    <form catchsubmit="formSubmit">
+        <!--动态生成问题-->
+        <block wx:for="{{configList}}" wx:key="id">
+
+            <!--上传题目-->
+            <view class="form_item clearfix" wx:if="{{item.declarationSubject== '0'}}">
+                <view class="form_label"><text wx:if="{{item.isRequired=='1'}}" class="required">* </text><text class="form_item_content">{{item.questionName}}</text></view>
+               <view wx:if="{{item.answer.isImg=='true'}}" bindtap="downloadImg"  data-url="{{item.answer.filePath}}">
+                     <image class="userImg"  style="width:135rpx;height:135rpx;margin-top: 20rpx;" src="{{item.answer.fullPath}}" mode="widthFix" show-menu-by-longpress="true"></image>
+                </view> 
+                <view wx:else>
+                    <view class="qblue" style="margin-bottom:10rpx" data-url="{{item.answer.filePath}}"  bindtap="downloadImg">
+                        {{item.answer.fileShortName}}
+                    </view>
+                </view>
+            </view>
+            
+            <!--其他-->
+            <view class="form_item" class="clearfix" wx:else>
+                <view class="form_label otherLabel"><text wx:if="{{item.isRequired=='1'}}"   class="required">* </text><text class="form_item_content">{{item.questionName}}</text></view>
+                <view class="form_content">{{item.answer}}</view>
+            </view>
+
+        </block>
+    </form>
+</view>

@@ -1,0 +1,127 @@
+<!--企业信息-->
+<van-toast id="van-toast" />
+<view>
+  <view class="header">
+    <cu-custom isBack="true" isBackIcon="true" backgroundColor="#11c2b8">
+      <text slot="backText">企业绑定</text>
+      <!-- <text slot="backText" wx:else>无邀请码绑定</text> -->
+    </cu-custom>
+  </view>
+
+
+  <view class="radio-wrap">
+    <van-radio-group value="{{ company2.isYao }}" bind:change="onChange"  direction="horizontal">
+    <van-radio checked-color="#11c2b8" name="0">没有邀请码</van-radio>
+    <van-radio checked-color="#11c2b8" name="1">我有邀请码</van-radio>
+  </van-radio-group>
+ </view>
+
+
+  <view class="cu-form-group" wx:if="{{!isHasCode}}" bindtap="showParkChoose">
+      <view class="title"><text class="star">*</text>所属园区</view>
+      
+      <view class="picker">
+        {{getParkValue.label}}
+      </view>
+      <text class="cuIcon-right"></text>
+  </view>
+
+  <view class="cu-form-group" wx:if="{{!isHasCode}}" bind:tap="showCompanyChoose">
+      <view class="title dfgs"><text class="star">*</text>企业名称</view>
+  
+      <view class="picker">
+          {{company.label}}
+      </view>
+      <text class="cuIcon-right"></text>
+  </view>
+
+
+ <!-- <view class="cu-form-group margin-top">
+      <view class="title">所属园区</view>
+      <picker bindchange="parkChange" value="{{index}}" range="{{parkList}}" range-key="NAME">
+              <view class="picker">
+                 {{index?parkList[index].NAME:'请选择'}}
+              </view>
+      </picker>
+  </view>
+  <view class="cu-form-group margin-top">
+      <view class="title"><text style="color:#ff0000">* </text>企业名称</view>
+      <picker bindchange="companyChange" value="{{defaultIndex}}" range="{{companyList}}" range-key="NAME">
+              <view class="picker">
+                 {{defaultIndex?companyList[defaultIndex].NAME:'请选择'}}
+              </view>
+      </picker>
+  </view>-->
+
+
+
+
+
+ <view class="common-con">
+ <block wx:if="{{isHasCode}}">
+  <van-cell title="企业邀请码"  border="{{ false }}"/>
+    <van-cell-group>
+    <van-field
+     custom-style="border: 1px solid #ccc;"
+      model:value="{{ company2.companyYao }}"
+      placeholder="请填写"
+      border="{{ true }}"
+      clearable="{{true}}"
+      bind:change="onYanChange"
+    />
+  </van-cell-group>
+</block>
+<!--无邀请码-->
+<block wx:else>
+  <van-cell  border="{{ false }}">
+    <view slot="title">
+          <view class="van-cell-text">
+            <text style="color:#ff0000">* </text>姓名
+           </view>
+      </view>
+  </van-cell>
+    <van-cell-group>
+    <van-field
+      custom-style="border: 1px solid #ccc;"
+      maxlength="15"
+      model:value="{{ company2.userName }}"
+      placeholder="请填写"
+      border="{{ true }}"
+      clearable="{{true}}"
+      bind:change="onInputChange"
+    />
+  </van-cell-group>
+  <van-cell  border="{{ false }}">
+    <view slot="title">
+          <view class="van-cell-text">
+            <text style="color:#ff0000">* </text>所在部门
+           </view>
+      </view>
+  </van-cell>
+  <van-field
+    custom-style="border: 1px solid #ccc;"
+      model:value="{{ company2.departmentId }}"
+      placeholder="请填写"
+      border="{{ true }}"
+      maxlength="15"
+      clearable="{{true}}"
+      bind:change="onInputDepartmentChange"
+    />
+    <!-- <view class="cu-form-group picker-con">
+      <picker  bindchange="departmentChange" value="{{defaultDepartmentIndex}}" range="{{departmentList}}" range-key="name">
+              <view class="picker">
+                 {{defaultDepartmentIndex?departmentList[defaultDepartmentIndex].name:'请选择'}}
+              </view>
+      </picker>
+  </view> -->
+</block>
+<van-button
+wx:if="{{user.adminStatus !=='1'}}"
+ custom-style="border-radius:10px;border:0;margin: 70rpx 0" 
+ block type="primary"
+ color="#11c2b8"
+ disabled="{{lock}}"
+bind:click="handleClickConfrim" 
+>提交</van-button>
+</view>
+</view>

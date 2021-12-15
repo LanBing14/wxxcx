@@ -1,0 +1,30 @@
+/* pages/user-info/user-about/index.wxss */
+.recordPage {
+  background-color: #fff;
+}
+
+.to-main {
+  height: 87vh;
+  overflow: scroll;
+  padding: 52rpx;
+  /* over-flow:usit; */
+}
+
+.header {
+  background-color: #eb404c !important;
+}
+.title{
+  font-size: 32rpx;
+  color: #444444;
+  font-weight: bold;
+  margin-bottom: 38rpx;
+}
+.text{
+  font-size: 22rpx;
+  color: #666666;
+  line-height: 45rpx;
+  text-indent:45rpx;
+}
+.margin-top{
+  margin-top: 60rpx;
+}

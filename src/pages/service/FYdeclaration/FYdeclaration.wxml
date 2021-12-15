@@ -1,0 +1,44 @@
+
+<view class="header">
+	<cu-custom isBack="{{true}}" bgColor="qlan"  isBackIcon="true" class="record-custom">
+		<view slot="backText">
+			<text class="titleName">防疫申报</text>
+		</view>
+	</cu-custom>
+</view>
+
+<scroll-view scroll-y style="height:calc(100vh - {{CustomBar}})px"  bindscrolltolower="loadMore" refresher-enabled="{{true}}"
+             refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="onRefresh">
+
+	<van-tabs active="" bind:change="onChange" color="#10c2b8">
+		<van-tab title="全部" name=" ">
+				<template is="listTemplate" data="{{list}}"></template>
+        </van-tab>
+		<van-tab title="未申报" name="1">
+			<template is="listTemplate" data="{{list}}"></template>
+		</van-tab>
+		<van-tab title="已申报" name="2">
+			<template is="listTemplate" data="{{list}}"></template>
+		</van-tab>
+
+	</van-tabs>
+</scroll-view>
+<template name="listTemplate">
+	<view class="main_content">
+		<view bind:tap="toFYsbao" data-status="{{item.STATUS}}" data-declarationid="{{item.DECLARATION_ID}}" data-id="{{item.ID}}" class="fyItem spAround alignS" wx:for="{{list}}" wx:key="ID">
+			<!--<view class="img_wrap">
+				<image src="{{appImgUrl}}images/serive/FYdeclaration/tips.png" style="width:35rpx;height:38rpx"/>
+			</view>-->
+			<view class="content_main flex1">
+				<view class="flex spBetween fontTop">
+					<view>{{item.DECLARATION_SUBJECT}}</view>
+					<view class="iconText  {{item.STATUS==1? 'yellow':'qblue'}}">{{item.STATUS==1? '未申报':'已申报'}}</view>
+				</view>
+				<view class="flex alCenter bottom_font spBetween">
+					<view class="bz">{{item.DECLARATION_EXPLAIN? item.DECLARATION_EXPLAIN:''}}</view>
+					<view class="time">{{item.ISSUING_TIME}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>

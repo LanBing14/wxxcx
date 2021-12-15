@@ -1,0 +1,26 @@
+/* colorui/components/cu-custom.wxss */
+.cu-custom{
+    
+    font-size: 36rpx;
+    padding-right: 0px;
+}
+.cu-near-icon{
+    margin-left: 50rpx;
+}
+.backIconStyle{
+    width: 45rpx;
+    height: 45rpx;
+    background-color: #00000038;
+    border-radius: 1000rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.scanImg{
+    height:36rpx;
+    width:35rpx;
+}
+
+.qlan{
+    background-color: #10c2b8;
+}

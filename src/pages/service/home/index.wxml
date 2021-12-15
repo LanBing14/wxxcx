@@ -1,0 +1,53 @@
+<!--pages/service-goods/record/index.wxml-->
+ <scroll-view scroll-y class="scrollPage">
+    <view class="all-wrap-home">
+        <view class="header">
+           <cu-custom isBack="{{true}}" bgColor="qlan"  isBackIcon="{{false}}" class="record-custom">
+                <view slot="backText">
+                    <image src="{{appImgUrl}}images/serive/index/home.png" class="position_img" mode="aspectFit"
+                    class="homeIcon"></image>
+                    <text class="titleName">服务</text>
+                </view>
+           </cu-custom>
+        </view>
+        <view class="main-content">
+            <template is="itemTemplate" data="{{homeData}}"></template>
+        </view>
+       
+   </view>
+    <view class='cu-tabbar-height'></view>
+</scroll-view>
+
+
+<!--每一大项目的模板-->
+<template name="itemTemplate">
+   <view class="item" wx:for="{{homeData}}" wx:for-index="index" wx:for-item="parentItem">
+        <view class="item_icon_wrap">
+
+            <image src="{{parentItem.homeSrc}}" style="width:34rpx;height:35rpx"/>
+            <text>{{parentItem.bigTitle}}</text>
+        </view>
+        <view>
+            <van-grid border="{{ false }}" custom-class="grid-wrap">
+                <van-grid-item  
+                    use-slot 
+                    wx:for="{{parentItem.itemContent}}" 
+                    wx:for-index="idx"
+                    wx:for-item="itemName" 
+                    wx:key="itemName"
+                    url="{{itemName.url}}"
+                    >
+                    <view class="content">
+                        <view class="img_wrap">
+                            <image
+                                style="width:98rpx; height: 98rpx;"
+                                src="{{itemName.src}}"
+                                />
+                        </view>
+                        <view class="grid_text">{{itemName.title}}</view>
+                    </view>
+                </van-grid-item>
+            </van-grid> 
+        </view> 
+    </view>              
+</template>

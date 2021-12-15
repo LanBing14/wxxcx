@@ -1,0 +1,11 @@
+/* pages/user-info/identificate/identificate.wxss */
+.common-con{
+  background: #fff;
+  height: 728rpx;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 30rpx;
+  padding-top: 90rpx;
+  font-size: 28rpx;
+  text-align: center;
+}

@@ -1,0 +1,35 @@
+<view class="carPlate" wx:if="{{show}}">
+    <view bindtap="closeJP" style="line-height:20px;font-size:14px">关闭键盘</view>
+    <block wx:if="{{type==1}}">
+     <view class="wordList">
+      <view class="wordItem" wx:for="{{cityKeyword1}}" wx:key="{{item}}" bindtap="handleClick" data-type="1" data-item="{{item}}">{{item}}</view>
+     </view>
+     <view class="wordList">
+      <view class="wordItem" wx:for="{{cityKeyword2}}" wx:key="{{item}}" bindtap="handleClick" data-type="1" data-item="{{item}}">{{item}}</view>
+     </view>
+     <view class="wordList">
+      <view class="wordItem" wx:for="{{cityKeyword3}}" wx:key="{{item}}" bindtap="handleClick" data-type="1" data-item="{{item}}">{{item}}</view>
+     </view>
+     <view class="wordList">
+      <view class="wordItem" wx:for="{{cityKeyword4}}" wx:key="{{item}}" bindtap="handleClick" data-type="1" data-item="{{item}}">{{item}}</view>
+     </view>
+    </block>
+    <block wx:else>
+     <view class="wordList">
+      <view class="wordItem" wx:for="{{keyNumber}}" wx:key="{{item}}" bindtap="handleClick" data-type="2" data-item="{{item}}">{{item}}</view>
+     </view>
+     <view class="wordList">
+      <view class="wordItem" wx:for="{{wordList1}}" wx:key="{{item}}" bindtap="handleClick" data-type="2" data-item="{{item}}">{{item}}</view>
+     </view>
+     <view class="wordList">
+      <view class="wordItem" wx:for="{{wordList2}}" wx:key="{{item}}" bindtap="handleClick" data-type="2" data-item="{{item}}">{{item}}</view>
+      <view class="wordItem wordClear" bindtap="handleClick" data-item="delete">
+        <van-icon name="cross" />
+      </view>
+     </view>
+     <view class="wordList">
+      <view class="wordItem" wx:for="{{wordList3}}" wx:key="{{item}}" bindtap="handleClick" data-item="{{item}}">{{item}}</view>
+      <view class="wordItem wordConfirm" bindtap="handleClick" data-item="confirm">确定</view>
+     </view>
+    </block>
+   </view>

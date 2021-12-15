@@ -1,0 +1,73 @@
+<!--pages/user-index/handle-address/index.wxml-->
+<scroll-view class="scrollPage" bindscrolltolower="loadMore" refresher-enabled="{{false}}">
+  <view class="header">
+    <cu-custom isBack="{{true}}" isBackIcon="{{true}}" class="record-custom">
+      <view slot="backText" class="backText">
+        {{title}}
+      </view>
+    </cu-custom>
+  </view>
+  <view class="main">
+    <van-row>
+      <van-col span="8">
+        <text class="asterisk">*</text>
+        姓名
+      </van-col>
+      <van-col span="24">
+        <van-field class="searchInput" disabled="{{title=='审核'}}" clearable value="{{ userName }}" placeholder="请输入" bind:change="changeName" bind:clear="clearName" />
+      </van-col>
+      <van-col span="8">
+        <text class="asterisk">*</text>
+        手机号
+      </van-col>
+      <van-col span="24">
+        <van-field disabled="{{title=='审核'}}" type="number" maxlength="11" class="searchInput" bind:input="checkPhone" clearable value="{{ phone }}"   placeholder="请输入" />
+      </van-col>
+   
+       <van-col span="8" >
+      {{title=='审核'? '部门':'部门选择'}}
+      </van-col>
+      <van-col span="24" wx:if="{{title =='审核'}}">
+        {{departmentUser||'-'}}
+      </van-col>
+      <van-col span="24" wx:if="{{title !=='审核'}}">
+        <picker bindchange="PickerChange" value="{{department}}" range="{{picker}}" range-key="name">
+          <view class="picker {{!department && 'chose'}}">
+            {{department?picker[department].name:'请选择'}}
+            <van-icon name="arrow" />
+          </view>
+        </picker>
+      </van-col>
+    </van-row>
+
+    
+    <van-row style="margin-top: 10rpx" wx:if="{{title =='审核'}}" >
+      <van-col span="24">
+        部门确认
+      </van-col>
+      <van-col span="8">
+        部门
+      </van-col>
+      <van-col span="24">
+        <picker bindchange="PickerChange" wx:if="{{title=='审核'}}" value="{{department}}" range="{{picker}}" range-key="name">
+          <view class="picker {{!department && 'chose'}}" style="display:flex;justify-content: space-between;">
+            <text style="">{{department?picker[department].name:'请选择'}}</text>
+            <van-icon name="arrow" color="#dddddd"/>
+          </view>
+        </picker>
+      </van-col>
+    </van-row>
+    <view class="mgT7 flex" wx:if="{{title ==='审核'}}">
+      <van-button class="bt1" type="primary" bindtap="changeAccountStatue" data-type="2">驳回</van-button>
+      <van-button type="primary"  bindtap="changeAccountStatue" data-type="1">审核通过</van-button>
+    </view>
+    <view class="mgT7 boderR" wx:if="{{title === '邀请'}}" bindtap="sendMessage">
+      <van-button type="primary" disabled="{{lock}}">发送邀请码</van-button>
+    </view>
+
+
+
+  </view>
+
+
+</scroll-view>

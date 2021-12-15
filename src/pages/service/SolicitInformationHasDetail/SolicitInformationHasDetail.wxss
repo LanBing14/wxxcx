@@ -1,0 +1,210 @@
+/* pages/service/SolicitInformationDetail/SolicitInformationDetail.wxss */
+.title_all_wrap{
+    display: flex;
+    align-items: center;
+    color: #222222;
+    font-size: 32rpx;
+    padding:27rpx 32rpx;
+}
+.title_all_wrap .font{
+    margin-left: 19rpx;
+}
+.solicit_main {
+    background-color: #fff;
+    padding: 60rpx 56rpx 60rpx;
+}
+.solicit_main .solicit_title{
+    color: #222222;
+    font-size: 32rpx;
+    line-height: 48rpx;
+}
+
+.solicit_content{
+    color: #666666;
+    font-size: 28rpx;
+    line-height: 44rpx;
+  
+}
+
+.link_more{
+    font-size: 22rpx;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #00b4aa;
+}
+.fj_wrap{
+    margin-top: 30rpx;
+    display:flex;
+}
+.fj_main_wrap{
+    display: flex;
+    flex-direction: column;
+}
+.fj_wrap .fj{
+    color: #222222;
+    font-size: 28rpx;
+}
+
+.fj_content{
+    color: #00b4aa!important;
+    font-size: 28rpx!important;
+}
+.copy_link{
+    margin-top: 39rpx;
+    text-align: center;
+}
+.copy_btn{
+    padding:18rpx 45rpx!important;
+    background-color: #b7edea!important;
+    border-radius:10rpx!important
+}
+
+.infor_content{
+    padding: 60rpx 32rpx 40rpx;
+    background:#fff;
+    margin: 24rpx;
+    border-radius: 18rpx!important;
+}
+.infor_title{
+    color: #222222;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 32rpx;
+    line-height: 32rpx;
+    margin-bottom: 14rpx;
+}
+
+.infor_line{
+    width: 30rpx;
+	height: 5rpx;
+    background-color: #10c2b8;
+    border-radius: 20rpx;
+}
+.form_item{
+    margin-top: 33rpx;
+}
+.inputCommon{
+    width: 100%;
+	height: 90rpx;
+	background-color: #ffffff;
+    border: solid 1px #cccccc;
+    padding-left: 32rpx;
+    font-size:30rpx;
+}
+
+.required{
+    color: #f73048;
+    font-size: 28rpx;
+}
+.form_label{
+    /* margin-bottom: 20rpx; */
+}
+.form_item_content{
+    color: #999999;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    
+}
+.form_item_bz{
+    font-size: 28rpx;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #999999;
+}
+
+.radioFont{
+    color: #222222;
+    font-size: 30rpx;
+}
+
+.radio_wrap{
+    margin-bottom: 52rpx;
+}
+
+.submitBtn{
+    width: 100%;
+      height: 80rpx;
+      background-color: #10c2b8;
+  }
+  
+.submitBtn {
+    background: #10c2b8!important;
+    height: 80rpx!important;
+    border-radius: 8rpx!important;
+}
+.btn_wrap{
+    margin-top: 60rpx;
+    padding-bottom: 60rpx;
+}
+.submitBtn .van-button__text{
+    color:#fff
+}
+
+.viewInput{
+   line-height: 90rpx;
+}
+.overText{
+    width: 50%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    overflow:hidden
+}
+
+.qblue{
+    color: #00b4aa;
+}
+
+.otherLabel{
+    margin-top:29rpx;
+    margin-right: 2em;
+    color: #999999;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    margin-bottom: 12rpx;
+}
+
+.form_content{
+    flex:1;
+    line-height: 56rpx;
+    color: #444444;
+    font-family: SourceHanSansCN-Regular;
+	font-size: 28rpx;
+
+}
+.clearfix{
+    padding-bottom: 12rpx;
+    border-bottom: 1rpx solid #f8f8fa;
+}
+.clearfix::after{
+    display: block;
+    content: '';
+    clear: both;
+    font-weight: bold;
+}
+.fl{
+    float: left;
+}
+
+
+.infor_title{
+   margin-bottom: 20rpx;
+}
+
+.vanIcon:before {
+    position: relative;
+    top: 2rpx;
+}
+
+.timeChooseInput{
+    position: relative;
+}
+
+.timeIcon{
+    position: absolute;
+    right:30rpx;
+    width: 38rpx;
+    height: 39rpx;
+    top:23rpx;
+}

@@ -1,0 +1,131 @@
+@import "../../user-index/home/home.wxss";
+.page-section{
+    height: 518rpx;
+}
+.col{
+    font-size: 60rpx;
+    text-align: center;
+}
+.col-text{
+    font-size: 30rpx;
+    display: block;
+    margin-left:50rpx;
+    /* margin-top: 25rpx; */
+}
+.integrationRule{
+    font-size: 20rpx;
+}
+.chhoseOption{
+    color: #00acec;
+}
+.lastOption{
+    border:0rpx !important;
+}
+.ruleMain{
+    margin-top: 25rpx;
+    display: inline-block;
+}
+.right-text{
+    text-align: center;
+}
+
+.icon-rule{
+    width: 17rpx;
+    height: 18rpx;
+    margin-right: 10rpx;
+}
+
+.slotView{
+    padding-top: 130rpx;
+}
+.coinLittle{
+    height: 56rpx;
+    width: 56rpx;
+    margin-right: 5rpx;
+}
+.btnReduce{
+    height: 39rpx;
+    margin-right: 5rpx;
+    width: 39rpx;
+}
+.main{
+    margin: auto;
+    position: unset;
+    height: auto;
+}
+.mainr{
+    top: 294rpx;
+    height: calc(100% - 365rpx);
+    overflow: auto;
+}
+.coinDetail{
+    padding: 28rpx;
+}
+.coinCol{
+    font-size:24rpx;
+    font-weight: bold;
+}
+.coinVan-tag {
+    margin-right: 5rpx;
+}
+.van-cell__title{
+    font-size: 26rpx;
+}
+.van-cell__label{
+    font-size: 20rpx;
+
+}
+.van-cell__value{
+    font-size: 30rpx;
+
+}
+/* 积分规则 */
+.ruleTitle{
+    font-size: 26rpx;
+    position: relative;
+    padding:20rpx 0;
+
+}
+.closeIcon{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height:29rpx;
+    width: 27rpx;
+}
+.ruleCol{
+    margin-top: 16rpx;
+    display: inline-block;
+    width: 100%;
+}
+.ruleCol view{
+    display: inline-block;
+}
+.ruleCol text{
+    display: block;
+    /* vertical-align: baseline; */
+}
+.redDot{
+    width: 8rpx;
+    height: 8rpx;
+    background-color: #ec414d ;
+    border-radius: 10000;
+
+    margin-right: 18rpx;
+    font-size: 22rpx;
+    color:#444;
+}
+.ruleCol view:last-child{
+    width: calc(100% - 26rpx);
+    word-wrap: break-word;
+    vertical-align: top;
+    /* margin-left: 26rpx; */
+}
+.organ{
+    display: inline-block;
+    margin-bottom: 13rpx;
+}
+.tableCol {
+    display:block;
+    margin-top: 5rpx !important;
+}

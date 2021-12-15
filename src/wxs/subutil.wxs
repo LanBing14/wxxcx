@@ -1,0 +1,7 @@
+var sub = function(val){
+    if(val && val.length>4){
+      return val.substring(0,4)
+    }
+    return val;
+  }
+module.exports.sub = sub;

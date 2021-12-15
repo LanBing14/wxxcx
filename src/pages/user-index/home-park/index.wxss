@@ -1,0 +1,7 @@
+/* pages/user-index/home-park/index.wxss */
+.header{
+  background-color: #10c2b8;
+}
+.backText{
+  display: contents;
+}

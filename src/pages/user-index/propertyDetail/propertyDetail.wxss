@@ -1,0 +1,58 @@
+.main {
+	margin: 24rpx;
+}
+.mainrs {
+	padding: 28rpx 28rpx 20rpx 28rpx;
+	background: #fff;
+	border-radius: 20rpx;
+}
+
+.title {
+	position: relative;
+	display: inline-block;
+	height: 46rpx;
+}
+
+.title text {
+	position: absolute;
+	width: 30rpx;
+	height: 3rpx;
+	display: inline-block;
+	background-color: #00b4aa;
+	bottom: 0rpx;
+	border-radius: 15rpx;
+	left: 0;
+}
+.property-item {
+	font-family: SourceHanSansCN-Regular;
+}
+.property-item .property-item-title {
+	font-size: 24rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0rpx;
+	color: #999999;
+	margin-top: 25rpx;
+}
+.property-item .property-item-content{
+	padding: 15rpx 0;
+	line-height: 40rpx;
+	font-size: 24rpx;
+	font-weight: bold;
+	border-bottom:2rpx solid #f8f8fa ;
+}
+.property-item .property-item-content-img{
+	display: flex;
+	flex-wrap:  wrap;
+	padding-top: 24rpx;
+}
+.property-item .property-item-content-img-item {
+	flex: 0 0 28%;
+	margin-right: 27rpx;
+	margin-bottom: 24rpx;
+	height: 137rpx;
+}
+.image {
+	width: 100%;
+    height: 100%;
+}

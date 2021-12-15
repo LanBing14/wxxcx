@@ -1,0 +1,42 @@
+<view class="header">
+		<cu-custom isBack="{{true}}" bgColor="qlan"  isBackIcon="true" class="record-custom">
+			<view slot="backText">
+				<text class="titleName">物业报修记录</text>
+			</view>
+		</cu-custom>
+	</view>
+<scroll-view scroll-y style="height:calc(100vh - {{CustomBar}}px)" >
+
+	<van-tabs active="{{ active }}" bind:change="onChange" color="#10c2b8">
+		<van-tab title="全部" name=" ">
+				<template is="listTemplate" data="{{list,baseUrl}}"></template>
+        </van-tab>
+		<van-tab title="未处理" name="0">
+			<template is="listTemplate" data="{{list,baseUrl}}"></template>
+		</van-tab>
+		<van-tab title="已处理" name="1">
+			<template is="listTemplate" data="{{list,baseUrl}}"></template>
+		</van-tab>
+	</van-tabs>
+</scroll-view>
+
+<template name="listTemplate">
+	<view class="main_content">
+		<view bind:tap="toDetail" data-id="{{item.ID}}"  data-status="{{item.STATE}}" class="fyItem spAround alignS" wx:for="{{list}}" wx:key="ID">
+			<view class="img_wrap">
+				<image src="{{baseUrl}}app/mini/images/user/fix@2x.png" style="width:35rpx;height:38rpx"/>
+			</view>
+			<view class="content_main flex1">
+				<view class="flex spBetween fontTop">
+					<view class="overText">{{item.ROOMNO}}</view>
+					<view class="iconText  {{(item.STATE == 1) ? 'qblue' : 'yellow'}}">{{(item.STATE == 1) ? '已处理' : '未处理'}}</view>
+				</view>
+				<view class="flex alCenter bottom_font ">
+					<view class="bz">报修时间：{{item.CREATETIME}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+

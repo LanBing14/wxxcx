@@ -1,0 +1,104 @@
+<!--pages/user-park/agency-show/index.wxml-->
+<!--pages/user-park/park-general/index.wxml-->
+<view class="header">
+  <cu-custom isBack="{{true}}" isBackIcon="{{true}}" bgColor="qlan" class="record-custom">
+    <view slot="backText" class="backText">
+      机构展示
+    </view>
+  </cu-custom>
+</view>
+<!-- <van-empty description="暂无数据" wx:if="{{swiperList.length}}" /> -->
+<swiper wx:if="{{swiperList.length}}" class="screen-swiper round-dot " indicator-dots="{{show}}" circular="{{true}}"
+  autoplay="{{true}}" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3"
+  indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{swiperList}}" wx:key>
+    <image src="{{item.url}}" mode="aspectFill" class="swiper_img"> </image>
+  </swiper-item>
+</swiper>
+<view class="main">
+  <view class="mainrs">
+    <view class="title">苏州创客峰会
+      <text></text>
+    </view>
+    <text class="introText">
+      苏州创客峰汇”是苏州高新区结合现有产业特色和平台载体
+      资源，为广大创客打造的低成本、便利化、全要素、开放式的众创
+      空间集聚区，2015年8月正式启动，同时还发布了众创空间配套政
+      策--《关于发展新型孵化器支持大众创新创业的办法》，2018年根
+      据双创环境以及区内众创空间发展状况，又对政策进行了调整，力
+      求通过政策引导、扶持，激发全区的创新创业活力，以大众创业、
+      万众创新打造经济发展新引擎。
+
+      截止目前，正式加盟苏州创客峰汇的众创空间已达61家，其中
+      国家级10家，省级37家，市级53家，区级41家，还有一批众创空
+      间正在洽谈入驻。累计孵化培育科技创业企业2000家;培育各级科
+      技领军人才290余人;举办各类双创活动830场。
+
+      经过两年多的发展，苏州创客峰汇成功入选江苏省科技厅首批
+      众创集聚区试点、获批江苏省首批“大众创业万众创新”示范基地
+      截全目别，集聚区内众创空日有10家纳入国家级科技企业孵孵化器
+      管理服务体系;37家纳入省级众创空间备案;40家获批市级众创空
+      间备案，41家认定为区级众创空间。这些众创空间在初创、成长、
+      加速三个不同的发展阶段为创客们提供个性化、深度参与的孵化服
+      务，极大地提高了创业服务效率和成功率。
+
+      未来，苏州创客峰汇将持续打响品牌效应，聚集一批优秀的创
+      业人才、创新项目和科技创业企业，通过营造更加优化的创新创业
+      环境，推动形成大众创业、万众创新蓬勃态势，努力把苏州高新区
+      建设成新兴的创新创业中心。
+    </text>
+  </view>
+  <view class="mainrs" style="margin-top: 20rpx;">
+    <view class="title">
+      机构资质
+      <text></text>
+    </view>
+    <view class="row">
+      <view class="flex">
+        <view>
+          <text class="col-title">区级</text>
+          <text class="col-mes">41 家</text>
+        </view>
+        <view>
+          <text class="col-title">市级</text>
+          <text class="col-mes">41 家</text>
+        </view>
+        <view>
+          <text class="col-title">省级</text>
+          <text class="col-mes">41 家</text>
+        </view>
+        <view>
+          <text class="col-title">省级</text>
+          <text class="col-mes">41 家</text>
+        </view>
+      </view>
+
+    </view>
+    <view class="park-img">
+      <image src="{{szckfh1.url}}" mode="aspectFill" class="park-img1" > </image>
+      <image src="{{szckfh2.url}}" mode="aspectFill" class="park-img2" > </image>
+    </view>
+  </view>
+  <view class="mainrs" style="margin-top: 20rpx;">
+    <view class="title" >
+      园区改革
+      <text></text>
+    </view>
+    <view class="timeList">
+      <!-- <view class="line"></view> -->
+      <view class="time-line" wx:for="{{steps}}" wx:key wx:for-index="ind">
+        <text class="line-left">
+          <text class="tag" wx:if="{{ind%2 === 0}}">{{item.text}}</text>
+          {{ind%2 === 1? item.desc:''}}
+        </text>
+        <view class="pos">
+          <text class="circl"></text>
+          <text class="lin" wx:if="{{!(ind === steps.length-1)}}"></text>
+        </view>
+        <text class="line-right">
+          <text class="tag" wx:if="{{ind%2 === 1}}">{{item.text}}</text>
+          {{ind%2===0 ? item.desc:''}}</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,186 @@
+<cu-custom isBack="{{true}}"  bgColor="qlan"  isBackIcon="true" class="record-custom">
+    <view slot="backText">
+        <text class="titleName">防疫申报</text>
+    </view>
+</cu-custom>
+<view class="title_all_wrap">
+    <image src="{{appImgUrl}}images/serive/FYdeclarationDetail/fyicon.png"  style="width:40rpx;height:40rpx"/>
+    <text class="font">防疫专题</text>
+</view>
+<view class="solicit_main">
+    <view class="solicit_title">
+        {{declarationSubject}}
+    </view>
+    <view class="solicit_content">
+
+        <view wx:if="{{!isShouShow}}">{{declarationExplain}}<text class="link_more" bind:tap="showMoreFont" wx:if="{{isShowDetailBtn}}">详情</text><van-icon wx:if="{{isShowDetailBtn}}" name="arrow" color="#00b4aa" custom-class="vanIcon" /></view>
+        <view wx:else>{{fullDeclarationExplain}}  <text class="link_more"  bind:tap="shouFont" wx:if="{{isShouShow}}">收起</text><van-icon wx:if="{{isShouShow}}" name="arrow-left" color="#00b4aa" custom-class="vanIcon"/></view>
+        <!--<view class="endDate">截止日期： <text class="detailDate">2020-10-10</text></view>-->
+    </view>
+</view>
+<view class="infor_content">
+    <view class="infor_title">防疫申报内容</view>
+    <form catchsubmit="formSubmit">
+        <!--动态生成问题-->
+        <block wx:for="{{configList}}" wx:key="id">
+
+            <!--填空题-->
+            <view class="form_item" wx:if="{{item.declarationSubject== 'fill_blank' && item.questionName!='现居住地（区/乡镇/街道）'}}">
+                <view class="form_label"><text wx:if="{{item.isRequired=='1'}}" class="required">* </text><text class="form_item_content">{{item.questionName}}</text></view>
+                <input bindinput="changeInput" data-index="{{index}}" maxlength="50" class="product  inputCommon" type="text"  value="{{item.value}}" placeholder="请填写"/>
+            </view>
+            
+            <!--单选题-->
+            <view class="form_item" wx:if="{{item.declarationSubject== 'single_choice'}}">
+                <view class="form_label"><text wx:if="{{item.isRequired=='1'}}"   class="required">* </text><text class="form_item_content">{{item.questionName}}</text></view>
+                <van-radio-group value="{{item.value}}" data-index="{{index}}" bind:change="changeRadio" direction="vertical">
+                    <van-radio wx:for="{{item.questionnaireItems}}" wx:for-index="idx" wx:for-item="item2"  name="{{item2.id}}" custom-class="radio_heng" label-class="radioFont" icon-size="31rpx" checked-color="#10c2b8">{{item2.itemsName}}</van-radio>
+                </van-radio-group>
+            </view>
+
+
+            <!--多选题-->
+            <view class="form_item" wx:if="{{item.declarationSubject== 'multiple_choice'}}">
+                <view class="form_label"><text wx:if="{{item.isRequired=='1'}}"   class="required">* </text><text class="form_item_content">{{item.questionName}}</text></view>
+                <van-checkbox-group value="{{ item.value }}" data-index="{{index}}" bind:change="onCheckChange">
+                    <van-checkbox wx:for="{{item.questionnaireItems}}" wx:for-index="idx" wx:for-item="item2"  shape="square" custom-class="checkbox_style"	 name="{{item2.id}}"  label-class="radioFont" icon-size="31rpx" checked-color="#10c2b8">{{item2.itemsName}}</van-checkbox>
+                </van-checkbox-group>
+            </view>
+
+
+            <!--附件题-->     
+            <view class="form_item"  wx:if="{{item.declarationSubject== 0}}">
+                <view class="form_label"><text wx:if="{{item.isRequired=='1'}}"   class="required">* </text><text class="form_item_content">{{item.questionName}}</text></view>
+                <van-uploader max-count="1" accept="all" upload-icon="upgrade" data-fIndex="{{index}}" bind:delete="deleteFile" preview-full-image="{{isImg? true:false}}" data-index="{{index}}"	bind:before-read="beforeRead"	use-before-read  deletable file-list="{{ item.value }}" bind:after-read="afterRead" ></van-uploader>
+            </view>
+         
+            <!--时间选择-->
+            <view class="form_item" wx:if="{{item.declarationSubject== '1'}}">
+                <view class="form_label"><text wx:if="{{item.isRequired=='1'}}" class="required">* </text><text class="form_item_content">{{item.questionName}}</text></view>
+                <view bind:tap="chooseTimeShow" data-index="{{index}}" class="product viewInput inputCommon timeChooseInput"> 
+                    <text class="placeholder" wx:if="{{!item.value}}">请填写</text>
+                    <text  wx:else>{{item.value}}</text>
+                    <image class="timeIcon" src="../../../addImg/timeIcon.png" style></image>
+                </view>
+                <van-calendar color="#10c2b8" show="{{ timeshow }}"   bind:close="onTimeClose" bind:confirm="onTimeConfirm" />
+            </view>
+
+            
+            <!--居住地区（选择到乡镇 /街道）-->
+            <view class="form_item" wx:if="{{item.declarationSubject== 'fill_blank'&&item.questionName=='现居住地（区/乡镇/街道）'}}">
+               <view class="form_label"><text wx:if="{{item.isRequired=='1'}}" class="required">* </text><text class="form_item_content">{{item.questionName}}</text></view>
+                <picker mode="multiSelector" bindchange="bindMultiPickerChange" data-nowindex="{{index}}" bindcolumnchange="bindMultiPickerColumnChange" value="{{item.multiIndex}}" range="{{multiArray}}">
+                    <view class="picker" style='font-size:24rpx'>
+                        <view bind:tap="saveQuIndex" data-nowindex="{{index}}"  class="product viewInput inputCommon"> 
+                            <text class="placeholder" wx:if="{{!item.value}}">请填写</text>
+                            <text  wx:else>{{item.value}}</text>
+                        </view>
+                    
+                    </view>
+                </picker>
+
+            </view>
+
+
+            <!--普通选择器-->
+            <view class="form_item" wx:if="{{item.declarationSubject== 'pull_down'}}">
+               <view class="form_label"><text wx:if="{{item.isRequired=='1'}}" class="required">* </text><text class="form_item_content">{{item.questionName}}</text></view>
+                <picker mode="selector" data-index="{{index}}" bindchange="pullChange" data-index="{{index}}"  value="{{item.value}}" range="{{item.array}}">
+                    <view class="picker timeChooseInput" style='font-size:30rpx'>
+                    
+                        <input class="product  inputCommon pullDownInput" disabled value="{{item.value? item.array[item.value]:'请选择'}}"/>
+                        <image class="pullIcon" src="../../../addImg/pullArrow.png" style></image>
+                    </view>
+                </picker>
+
+            </view>
+
+
+
+
+
+
+        </block>
+
+
+        <!--动态生成问题结束-->
+        <view wx:if="{{false}}">
+            <!--公司名称-->
+            <view class="form_item">
+                <view class="form_label"><text class="required">* </text><text class="form_item_content">企业名称</text></view>
+                <input bindinput="changeCompanyName" maxlength="50" class="product  inputCommon" type="text" name="companyName" value="{{form.companyName}}" placeholder="请填写"/>
+            </view>
+            <!--填报人姓名-->
+            <view class="form_item">
+                <view class="form_label"><text class="required">* </text><text class="form_item_content">填报人姓名</text></view>
+                <input bindinput="changeName" class="product  inputCommon" maxlength="15" name="name" type="text" value="{{form.name}}" placeholder="请填写"/>
+            </view>
+            <!--填报身份证号码-->
+            <view class="form_item">
+                <view class="form_label"><text class="required">* </text><text class="form_item_content">身份证号码</text></view>
+                <input bindinput="changeIdNo" class="product  inputCommon" maxlength="20" type="text" name="idNo" value="{{form.idNo}}" placeholder="请填写"/>
+            </view>
+
+            <!--填报联系电话-->
+            <view class="form_item">
+                <view class="form_label"><text class="required">* </text><text class="form_item_content">联系电话</text></view>
+                <input bindinput="changeTel" class="product  inputCommon" maxlength="11" type="text" value="{{form.Tel}}" name="Tel" placeholder="请填写"/>
+            </view>
+            <!--居住地区（选择到乡镇 /街道）-->
+            <view class="form_item">
+                <view class="form_label"><text class="required">* </text><text class="form_item_content">居住地区</text><text class="form_item_bz">（选择到乡镇 /街道）</text></view>
+                <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+                    <view class="picker" style='font-size:24rpx'>
+                        <input class="product  inputCommon" disabled value="{{form.showPosition? form.showPosition:'请选择'}}"/>
+                    
+                    </view>
+                </picker>
+
+            </view>
+
+            <!--详细地址-->
+            <view class="form_item">
+                <view class="form_label"><text class="required">* </text><text class="form_item_content">详细地址 <text class="form_item_bz">（具体到门牌号码）</text></text></view>
+                <input bindinput="changeDetailPosition" maxlength="30" class="product  inputCommon" type="text" maxlength="30" name="detailPosition" value="{{form.detailPosition}}" placeholder="请填写"/>
+            </view>
+
+            <!--疫苗接种-->
+            <view class="form_item">
+                <view class="form_label"><text class="required">* </text><text class="form_item_content">疫苗接种</text></view>
+                <van-radio-group value="{{form.ymjz}}" bind:change="changeYmjz" direction="horizontal">
+                    <van-radio name="1" custom-class="radio_heng" label-class="radioFont" icon-size="31rpx" checked-color="#10c2b8">未接种</van-radio>
+                    <van-radio name="2" custom-class="radio_heng" label-class="radioFont" icon-size="31rpx" checked-color="#10c2b8">1针</van-radio>
+                    <van-radio name="3" custom-class="radio_heng"  label-class="radioFont" icon-size="31rpx" checked-color="#10c2b8">2针</van-radio>
+                    <van-radio name="4" custom-class="radio_heng" label-class="radioFont" icon-size="31rpx" checked-color="#10c2b8">3针</van-radio>
+                </van-radio-group>
+            </view>
+
+            <!--健康码颜色-->
+            <view class="form_item">
+                <view class="form_label"><text class="required">* </text><text class="form_item_content">健康码颜色</text></view>
+                <van-radio-group value="{{form.colorJ}}" bind:change="changeColorJ" direction="horizontal">
+                    <van-radio name="1" custom-class="radio_heng" label-class="radioFont" icon-size="31rpx" checked-color="#10c2b8">绿码</van-radio>
+                    <van-radio name="2" custom-class="radio_heng" label-class="radioFont" icon-size="31rpx" checked-color="#10c2b8">橙码</van-radio>
+                    <van-radio name="3" custom-class="radio_heng" label-class="radioFont" icon-size="31rpx" checked-color="#10c2b8">红码</van-radio>
+                </van-radio-group>
+            </view>
+            <!--健康码图片-->
+            <view class="form_item">
+                <view class="form_label"><text class="required">* </text><text class="form_item_content"> 健康码图片</text></view>
+                <van-uploader max-count="1" data-isIndex="0"	bind:before-read="beforeRead"	use-before-read  deletable file-list="{{ fileList }}" bind:after-read="afterRead" />
+            </view>
+            <!-- 行程码图片-->
+            <view class="form_item">
+                <view class="form_label"><text class="required">* </text><text class="form_item_content"> 行程码图片</text></view>
+                <van-uploader max-count="1"  data-isIndex="1"	bind:before-read="beforeRead"	use-before-read  deletable file-list="{{ fileList1 }}" bind:after-read="afterRead" />
+            </view>
+         
+        </view>
+        <view class="btn_wrap">
+            <van-button form-type="submit" disabled="{{lock}}"  custom-class="submitBtn" block>提交</van-button>
+        </view>
+    
+    
+   
+    </form>
+</view>

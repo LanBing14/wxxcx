@@ -1,0 +1,28 @@
+<!--pages/user-index/park-information/index.wxml-->
+<view class="header">
+  <cu-custom isBack="{{true}}" isBackIcon="{{true}}">
+    <view slot="backText" class="backText">
+      园区资讯
+    </view>
+  </cu-custom>
+</view>
+
+<scroll-view scroll-y style="height: calc( 100vh - {{CustomBar}}px)" bindscrolltolower="loadMore" refresher-enabled="{{true}}"
+  refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="onRefresh">
+  <!--  list表  -->
+  <view class="park-list">
+    <van-empty description="暂无数据" wx:if="{{!parkList.length}}" />
+    <view class="park-list-item" wx:for="{{parkList}}" wx:key="id"  wx:if="{{parkList.length}}" bindtap="handleGo" data-id="{{item.ID}}">
+      <image class="item-img" src="{{item.coverPath}}" mode="aspectFill" />
+      <view class="park-right">
+        <view class="park-right-title">
+          {{item.NOTICE_TITLE}}
+        </view>
+        <view class="park-right-time">
+          {{item.CREATE_TIME}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>

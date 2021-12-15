@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "common-cell":"../commonCell/common-cell",
+    "van-button": "@vant/weapp/button/index"
+  }
+}

@@ -1,0 +1,62 @@
+/* pages/user-info/user-auth/index.wxss */
+.recordPage {
+  background-color: #f5f6fa;
+}
+
+.to-main {
+  height: 87vh;
+  overflow: scroll;
+  /* over-flow:usit; */
+}
+
+.header {
+  background-color: #eb404c !important;
+}
+.margin-both{
+  padding-left: 33rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #f5f6fa;
+  /* margin-bottom: 1rpx; */
+}
+.companyBox {
+  height: 180rpx;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  /* padding: 0 33rpx; */
+  position: relative;
+  /* padding: 44rpx 0; */
+}
+
+.overflowDot {
+  width: 384rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:26rpx;
+  color:#444;
+}
+.timeText{
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 27rpx;
+}
+.deleteText{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 147rpx;
+  background-color: #ec414d;
+  color: #fff;
+  font-size: 32rpx;
+}
+van-swipe-cell{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.hiddenView{
+  width: 100%;
+  height: 180rpx;
+}

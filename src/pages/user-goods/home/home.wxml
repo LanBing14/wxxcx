@@ -1,0 +1,104 @@
+<!-- <import src="../../layout01/layout01.wxml"/> -->
+<scroll-view scroll-y class="scrollPage">
+  <!-- <view class="page-body"> -->
+  <view class="page-section page-section-spacing swiper {{showNavList?'showNavList':''}}">
+  </view>
+  <!-- </view> -->
+  <view class="main">
+    <view class="mainr" wx:if="{{showmain}}">
+      <view class="main-title">
+        <text class="left-text" style="background-image:url({{appImgUrl}}images/xfd/line.png)">商品兑换</text>
+        <view class="right-text">
+          <van-dropdown-menu class="use-van-dropdown-menu mymeun" wx:if="{{areaList.length}}">
+            <van-dropdown-item value="{{userArea}}" options="{{areaList}}" bind:change="dictChangeFun"/>
+          </van-dropdown-menu>
+        </view>
+        <label bindtap="checkFun" class="label {{isShowOFme?'chose':''}}">
+          <checkbox class="smail-checkbox" color="#ec414d" value="isShowOFme" checked="{{isShowOFme}}" />
+          仅我可用
+        </label>
+      </view>
+      <view class="uNav-list">
+        <navigator class="uNav-li" open-type="navigate" wx:for="{{elements}}" wx:for-index="index" wx:key>
+          <image mode="aspectFit" src="{{item.imageSrc}}" data-params="{{item}}" data-index="{{index}}" bindtap="typeChangeFun" binderror="getError"></image>
+          <view>{{item.value}}</view>
+        </navigator>
+        <navigator class="uNav-li" open-type="navigate" bindtap="showAllNaves" wx:if="{{!showOtherNavList}}">
+          <image mode="aspectFit" src="{{appImgUrl}}images/xfd/byme.png"></image>
+          <view>{{item.value}}</view>
+        </navigator>
+        <!-- 显示剩余菜单 -->
+        <navigator class="uNav-li" open-type="navigate" wx:for="{{otherNavList}}" wx:for-index="index" wx:key wx:if="{{showOtherNavList}}">
+          <image mode="aspectFit" src="{{item.imageSrc}}" data-params="{{item}}" data-index="{{index}}" bindtap="typeChangeFun" binderror="getError"></image>
+          <view>{{item.value}}</view>
+        </navigator>
+        <navigator class="uNav-li" open-type="navigate" bindtap="showAllNaves" wx:if="{{showOtherNavList}}">
+          <image mode="aspectFit" src="{{appImgUrl}}images/xfd/byme.png"></image>
+          <view>{{item.value}}</view>
+        </navigator>
+      </view>
+      <view class="message-list">
+        <navigator class="message-li" open-type="navigate" url="/pages/user-goods/good-detail/index?spxxId={{item.ID}}" wx:for="{{dataList}}" wx:key>
+          <image mode="aspectFit" src="{{item.ztFilePath}}"></image>
+          <view class="right-message">
+            <view class="right-title">
+              <text class="conpany">{{item.SPMC}}</text>
+              <text class="cuIcon-roundcheckfill lg text-gray {{item.ENABLE == '1' ? 'show' : ''}}"></text>
+            </view>
+            <text class="organ">{{item.JGMC}}</text>
+            <text class="introduce">{{item.SPMS}}</text>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <!-- 个人信用币详情 -->
+    <view wx:if="{{!showmain && !showIntegrationRule}}" class="mainr coinDetail">
+      <view wx:for="{{goodList}}" wx:for-item="item" >
+        <van-row>
+          <van-col span="24" class="coinCol">
+            <van-tag class="coinVan-tag" type="primary" color="#30d3c9" wx:if="{{item.THIS_DATE == '1'}}">本周期</van-tag>
+            <van-tag class="coinVan-tag" type="primary" color="#30d3c9" wx:if="{{item.THIS_DATE != '1'}}">{{item.C_DATE}}月</van-tag>
+            获取 <text style="color:red"> {{ item.HQ_XYB }} </text> 消耗 {{item.XH_XYB}}
+          </van-col>
+        </van-row>
+        <van-cell class="{{child.STATUS == '0' ? 'add' : ''}}" wx:for="{{item.children}}" wx:for-item="child" title="{{child.desc}}"
+          value="{{child.STATUS == '0' ? '+' : '-'}}{{child.XYB}}" label="{{child.CREATE_TIME}}" />
+      </view>
+      <view wx:if="{{ xybQuery.next == '0' }}" style="text-align: center;">
+        <image style="width: 20rpx;height: 10rpx;" mode="aspectFit" src="{{imagesUrl}}next.png" bindtap="nextXyb"></image>
+      </view>
+    </view>
+
+    <!-- 积分规则 -->
+    <view wx:if="{{showIntegrationRule}}" class="mainr coinDetail">
+      <view class="ruleTitle">
+        <text>积分规则</text>
+        <van-icon class="closeIcon" name="cross" bindtap="closeShowRule" />
+      </view>
+      <van-row>
+        <van-col span="24" class="ruleCol">
+          <view class="redDot"></view>
+          <view>诚信积分：原始信用分 {{integrationRule.dhxyf ? (integrationRule.dhxyf == '1' ? '-' : '+') + integrationRule.dhxyf + '调整分' : ''}} {{integrationRule.dhxybBl}}%兑换信用币</view>
+        </van-col>
+        <van-col span="24" class="ruleCol">
+          <view class="redDot"></view>
+          <view>完成认证：绑定手机号、实名认证后+{{integrationRule.wcrz ? integrationRule.wcrz : 0}}币</view>
+        </van-col>
+        <van-col span="24" class="ruleCol">
+          <view class="redDot"></view>
+          <view>商家入驻：作为服务机构联系人完成商户自主认证后+{{integrationRule.shrz ? integrationRule.shrz : 0}}币</view>
+        </van-col>
+        <van-col span="24" class="ruleCol">
+          <view class="redDot"></view>
+          <view>提供服务：为服务机构创建并启用服务后+{{integrationRule.tgfw ? integrationRule.tgfw : 0}}币</view>
+        </van-col>
+        <van-col span="24" class="ruleCol">
+          <view class="redDot"></view>
+          <view>兑换信用币比例：初始登录+{{integrationRule.csdl ? integrationRule.csdl : 0}}币，此后登录{{integrationRule.chdl == '1' ? '依次递增' + (integrationRule.dzsl ? integrationRule.dzsl : 0) : '维持初始' + (integrationRule.csdl ? integrationRule.csdl : 0)}}币
+            {{integrationRule.chdl == '1' ? '，达登录上限' + integrationRule.dlts + '天后' + (integrationRule.dsxh == '1' ? '维持上限' : '从头循环') + '（中断后从头开始）' : ''}}</view>
+        </van-col>
+      </van-row>
+    </view>
+
+  </view>
+</scroll-view>

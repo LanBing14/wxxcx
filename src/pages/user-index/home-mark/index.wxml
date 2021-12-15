@@ -1,0 +1,11 @@
+<!--pages/user-index/home-mark/index.wxml-->
+<scroll-view scroll-y class="scrollPage" bindscrolltolower="loadMore" refresher-enabled="{{true}}"
+  refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="onRefresh">
+  <view class="header">
+    <cu-custom isBack="{{true}}" isBackIcon="{{true}}" class="record-custom">
+      <view slot="backText" class="backText">
+        访客预约
+      </view>
+    </cu-custom>
+  </view>
+  </scroll-view>

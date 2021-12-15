@@ -1,0 +1,49 @@
+<view class="propertyRepair_wrap" wx:if="{{isParkShow==false&&isRoomShow==false}}">
+	<view class="header">
+		<cu-custom isBack="{{true}}" bgColor="qlan"  isBackIcon="true" class="record-custom">
+			<view slot="backText">
+				<text class="titleName">装修申请</text>
+			</view>
+		</cu-custom>
+	</view>
+	<view class="main_content">
+		<form catchsubmit="formSubmit">
+			<view class="main_content_title">装修位置</view>
+			<view class="bottom_main">
+				<view class="cu-form-group" bindtap="showParkChoose">
+					<view class="title"><text class="star">*</text>所属园区</view>
+					
+					<view class="picker">
+						{{getParkValue.label}}
+					</view>
+						<text class="cuIcon-right"></text>
+				</view>
+				<view class="cu-form-group" bind:tap="showRoomChoose">
+					<view class="title"><text class="star">*</text>装修房源</view>
+				
+					<view class="picker">
+						{{rommsNameStr}}
+					</view>
+						<text class="cuIcon-right"></text>
+				</view>
+			</view>
+            <view class="toatlArea">合计面积 {{totalArea}}</view>
+			<view class="main_content_title">装修内容</view>
+
+			<view>
+				<view class="form-group">
+					<view class="title"><text class="star">*</text>内容描述</view>
+					<textarea bindinput="changeContent" class="textA" maxlength="200" value="{{form.content}}"   name="content" placeholder="请填写"></textarea>	
+				</view>
+			</view>
+	
+			<view class="btn_wrap">
+				<van-button form-type="submit" disabled="{{lock}}"  custom-class="submitBtn" block>提交</van-button>
+			</view>
+		</form>
+	</view>	
+</view>
+<!--选择房间-->
+<view wx:if="{{isRoomShow}}">
+	<houseSources bind:getR="getRr" roomList="{{roomList}}" bind:hideHouseSources="hideHouse" hasChoosed="{{roomsData}}"></houseSources>
+</view>

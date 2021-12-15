@@ -1,0 +1,14 @@
+{
+  "component": true,
+  "usingComponents":{
+   "van-row": "../../../miniprogram_npm/@vant/weapp/row/index",
+   "van-col":"../../../miniprogram_npm/@vant/weapp/col/index",
+   "van-tag": "../../../miniprogram_npm/@vant/weapp/tag/index",
+   "van-cell":"../../../miniprogram_npm/@vant/weapp/cell/index",
+   "van-icon":"../../../miniprogram_npm/@vant/weapp/icon/index",
+   "van-transition": "@vant/weapp/transition/index",
+   "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+   "van-dropdown-item": "@vant/weapp/dropdown-item/index"
+  }
+
+}

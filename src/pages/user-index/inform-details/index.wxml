@@ -1,0 +1,17 @@
+<!--pages/user-index/inform-details/index.wxml-->
+<scroll-view scroll-y class="scrollPage" bindscrolltolower="loadMore" refresher-enabled="{{true}}"
+  refresher-triggered="{{triggered}}" refresher-default-style="black" bindrefresherrefresh="onRefresh">
+  <view class="header">
+    <cu-custom isBack="{{true}}" isBackIcon="{{true}}" class="record-custom">
+      <view slot="backText" class="backText">
+        {{detail.noticeType}}
+      </view>
+    </cu-custom>
+  </view>
+ 
+  <van-panel title="提醒类型" status="{{detail.noticeType}}"></van-panel>
+  <van-panel title="提醒时间" status="{{detail.formatNoticeTime}}"></van-panel>
+  <van-panel title="提醒内容">
+    <view class="text">{{detail.noticeContent}}</view>
+  </van-panel>
+</scroll-view>

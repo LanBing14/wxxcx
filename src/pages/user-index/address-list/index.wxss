@@ -1,0 +1,95 @@
+/* pages/user-index/user-address/index.wxss */
+.header {
+  background-color: #10c2b8;
+}
+
+.backText {
+  display: contents;
+}
+/*  搜索 */
+.searchTop{
+  display: flex;
+  margin: 32rpx;
+  margin-bottom: 0;
+}
+.searchInput{
+  width: 540rpx;
+  margin-right: 26rpx;
+}
+.searchInput .van-cell {
+  border-radius: 15rpx;
+}
+.search-btn .van-button {
+  border-radius: 15rpx;
+  border: 0;
+}
+.noshowBtn{
+  flex: 1;
+  margin: 0;
+}
+/* 列表 */
+
+.list-li{
+  margin: 32rpx;
+  margin-bottom: 0;
+  display: flex;
+  padding: 23rpx; 
+  background-color: #fff;   
+  border-radius: 15rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-li-l{
+  display: flex;
+}
+.list-li image{
+  margin-right: 23rpx;
+}
+.li-right{
+  display:flex;
+  justify-content: space-evenly;
+  flex-flow: column;
+  font-size: 24rpx;
+  color: #999;
+  
+}
+.li-right .van-tag{
+  font-size: 18rpx;
+  color: #fefefe;
+  vertical-align: middle;
+  margin-left: 11rpx;
+}
+.list-li .van-button {
+  border-radius: 15rpx;
+  color: #00b4aa;
+  border-color: #00b4aa;
+  font-size: 24rpx;
+}
+.li-top{  
+  font-size: 28rpx;
+  color: #222;
+}
+.orcodeBox{
+  margin-top: 155rpx;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.orcodeText{
+   font-size: 28rpx;
+   color: #999;
+   margin-top: 30rpx;
+}
+.orcodeText text{
+  color: #f19f10;
+  position: relative;
+  display: inline-block;
+}
+.text{
+  height: 27rpx;
+  width: 2rpx;
+  margin: 0 20rpx;
+  vertical-align: middle;
+  border-left: 1rpx solid #ddd;
+}

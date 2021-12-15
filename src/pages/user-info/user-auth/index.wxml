@@ -1,0 +1,30 @@
+<!--pages/user-info/user-auth/index.wxml-->
+<scroll-view scroll-y class="scrollPage recordPage">
+  <view class="header">
+    <cu-custom isBack="true" class="record-custom">
+      <view slot="content">授权管理</view>
+    </cu-custom>
+  </view>
+  <view class="to-main" style="background:{{!list.length?'#fff':'initial'}}">
+    <view class="margin-both" wx:for="{{list}}">
+      <view class="companyBox">
+        <view class="overflowDot">{{item.SERVICE_NAME}}</view>
+        <view class="timeText">授权时间: {{item.SQ_TIME}}</view>
+        <van-swipe-cell right-width="{{62}}">
+          <view class="hiddenView"></view>
+          <view class="deleteText" slot="right" bindtap="delete" data-id="{{item.ID}}">删除</view>
+        </van-swipe-cell>
+      </view>
+      <!-- <van-divider /> -->
+    </view>
+    <view class="emptyTable" style="margin-top:24vh" wx:if="{{!list.length}}">
+      <view style="height:300rpx;margin:auto;">
+        <image style="height:100%;width: 100%;" mode="aspectFit"
+               src="{{imagesUrl}}serviceEmpty.png"></image>
+      </view>
+      <text
+        style="width: 100%;margin-top:20rpx; display: inline-block;text-align:center; color: #676565;">暂无数据
+      </text>
+    </view>
+  </view>
+</scroll-view>

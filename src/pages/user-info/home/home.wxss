@@ -1,0 +1,133 @@
+.recordPage{
+  background-color: #f5f6fa;
+}
+.to-main{
+  height: 87vh;
+  overflow: scroll;
+  /* over-flow:usit; */
+}
+ .header{
+  background-color: #11c2b8;
+  font-size:32rpx;
+}
+.flexContainer{
+  display: flex;
+  align-items: center;
+}
+.myInfo{
+  height: 180rpx;
+  font-size: 36rpx;
+  padding: 0 40rpx;
+  color: #fff;
+  background-color:#10c2b8;
+  font-weight: bold;
+}
+.userAvatarUrl-l{
+  width: 128rpx;
+  height: 128rpx;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-right: 36rpx;
+}
+.list-con{
+  border-radius: 10px;
+  overflow: hidden;
+}
+.image-con{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+.cutBtn{
+  margin-top: 20rpx;
+  border: 0;
+  font-size: 26rpx;
+  color: #666666;
+  background-color: #fff;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cu-modal{
+  /* width: 100%; */
+  /* position: relative; */
+  margin: auto;
+
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cu-dialog{
+  width: 540rpx;
+  background-color: #fff;
+}
+.cuIcon-roundclose{
+  font-size: 56rpx;
+
+}
+.imgBox{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.closeBtn{
+  position: absolute;
+  right: 56rpx;
+  top: -56rpx;
+
+  right: -29rpx;
+  top: -60rpx;
+}
+.modelTextBox{
+  padding: 0 48rpx;
+  text-align: left;
+  padding-bottom: 46rpx;
+}
+.modelText{
+  font-size: 26rpx;
+  color: #222;
+  font-weight: bold;
+  margin: 34rpx 0;
+}
+.checkboxBox{
+  display: flex;
+  color: #ec4f5a;
+  font-size: 20rpx;
+  align-items: center;
+}
+.checkboxIcon{
+  color: #ec4f5a;
+  font-size: 24rpx;
+  margin-right: 10rpx;
+}
+.footer-btns{
+  height: 89rpx;
+ background-color: #fff;
+ border-top:1rpx solid #e6e4e2;
+ font-size: 32rpx;
+}
+.footer-btns view{
+  width: 49%;
+  height: 100%;
+  display: inline-block;
+  line-height: 89rpx;
+  margin: auto;
+}
+.footer-btns view:first-child{
+  border-right:1rpx solid #e6e4e2;
+  color: #ec414d;
+}
+
+.cell-height{
+  line-height:60rpx!important;
+  display: flex;
+  align-items: center;
+}
+

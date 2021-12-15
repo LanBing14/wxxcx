@@ -1,0 +1,161 @@
+/* pages/user-park/agency-show/index.wxss */
+.main {
+  margin: 24rpx;
+}
+.mainrs {
+  padding: 28rpx;
+  background: #fff;
+  border-radius: 20rpx;
+}
+
+.title {
+  position: relative;
+  display: inline-block;
+  height: 46rpx;
+
+}
+
+.title text {
+  position: absolute;
+  width: 30rpx;
+  height: 3rpx;
+  display: inline-block;
+  background-color: #00b4aa;
+  bottom: 0rpx;
+  border-radius: 15rpx;
+  left: 0;
+
+}
+.flex{
+  display:flex;
+
+}
+.flex>view{
+  flex:1;
+  background-color: #edfafa;
+  padding: 30rpx 10rpx;
+  text-align: center;
+  /* margin-right: 1px; */
+  border-right: 1px solid #fff;
+  width: 33.3%;
+  white-space: nowrap;
+}
+.flex>view text{
+  display:block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.row {
+  /* background-color: #edfafa; */
+  /* padding: 35rpx; */
+  text-align: center;
+  margin-top: 24rpx;
+  line-height: 1.8;
+}
+
+.col-title {
+  font-size: 22rpx;
+  color: #666;
+}
+
+.col-mes {
+  font-size: 28rpx;
+  color: #00b4aa;
+}
+
+.introText {
+  color: #444;
+  font-size: 22rpx;
+  line-height: 44rpx;
+  text-indent: 20rpx;
+  display: inline-block;
+  white-space: pre-wrap;
+}
+
+/* 时间戳 */
+.timeList {
+  position: relative;
+}
+
+.time-line {
+  display: flex;
+  justify-content: center;
+}
+
+.time-line>text {
+  width: calc(100%/2 - 46rpx);
+}
+
+.line-left {
+  text-align: right;
+  margin-top: -12rpx; 
+  /* margin-right: 46rpx; */
+}
+
+.line-right {
+  /* margin-left: 46rpx; */
+  margin-top: -12rpx;
+}
+
+.pos {
+  position: relative;
+  width: 92rpx;
+}
+
+.circl {
+  width: 16rpx;
+  height: 16rpx;
+  background: #ccc;
+  border-radius: 50%;
+  position: absolute;
+  left: calc(50% - 8rpx);
+  top: 44rpx;
+}
+
+.lin {
+  position: absolute;
+  top: 44rpx;
+  height: 100%;
+  width: 2rpx;
+  background: #ccc;
+  left: calc(50% - 4rpx);
+}
+
+
+.line {
+  display: inline-block;
+  left: 50%;
+  height: 500px;
+  width: 1rpx;
+  background: #ccc;
+  position: absolute;
+}
+
+.tag {
+  background: #fe9f10;
+  color: #fff;
+  padding: 6rpx 30rpx;
+  margin-top: 40rpx;
+  display: inline-block;
+  border-radius: 9rpx;
+  font-size: 18rpx;
+}
+
+.park-img {
+  position: relative;
+  height: 660rpx;
+}
+.park-img .park-img1{
+  width: 100%;
+  height: 480rpx;
+  margin-top: 20rpx;
+}
+.park-img2 {
+  width: 240rpx;
+  height: 240rpx;
+  position: absolute;
+  bottom: 22rpx;
+  left: 45%;
+  z-index: 999;
+}

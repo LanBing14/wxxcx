@@ -1,0 +1,387 @@
+/* pages/service/visitorAppointment/visitorAppointment.wxss */
+.top_wrap .itemCircle{
+    width: 127rpx;
+    height: 127rpx;    
+    border-radius: 50%;
+}   
+
+.flex{
+    display: flex;
+}
+
+.alCenter{
+    align-items: center;
+}
+.spbetween{
+    justify-content: space-between;
+    align-items: center;
+}
+.spar{
+    justify-content: space-around;
+}
+.center{
+    text-align: center;
+}
+
+.top_wrap_main{
+    width: 576rpx;
+    margin: 0 auto;
+    padding: 56rpx 0 47rpx;
+}
+
+.iconTop{
+    padding-top: 27rpx;
+}
+
+.radio_item{
+    position: relative;
+}
+
+.radio_now{
+    position: absolute;
+    bottom: 0;
+    right: -40rpx;
+}
+
+.whoAreYou{
+    color: #222222;
+    font-size: 32rpx;
+}
+.infor_content{
+    padding: 60rpx 32rpx 0;
+    background:#fff;
+    margin-top: 24rpx;
+    padding-bottom: 60rpx;
+}
+.infor_title{
+    color: #00b4aa;
+    font-size: 32rpx;
+    line-height: 32rpx;
+    margin-bottom: 40rpx;
+}
+.form_item{
+    margin-top: 33rpx;
+}
+.inputCommon{
+    width: 100%;
+	height: 90rpx;
+    line-height: 90rpx;
+	background-color: #ffffff;
+    border: solid 1px #cccccc;
+    padding-left: 32rpx;
+    font-size:30rpx;
+}
+
+.required{
+    color: #f73048;
+    font-size: 28rpx;
+}
+.form_label{
+    margin-bottom: 20rpx;
+}
+.form_item_content{
+    font-size: 32rpx;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #222222;
+}
+.form_item_bz{
+    font-size: 28rpx;
+	font-weight: normal;
+	letter-spacing: 0px;
+	color: #999999;
+}
+
+.radioFont{
+    color: #222222;
+    font-size: 30rpx;
+}
+
+.radio_wrap{
+    margin-bottom: 52rpx;
+}
+
+.submitBtn{
+    width: 100%;
+      height: 80rpx;
+      background-color: #10c2b8;
+  }
+  
+.submitBtn {
+    background: #10c2b8!important;
+    height: 80rpx!important;
+    border-radius: 8rpx!important;
+}
+.btn_wrap{
+    line-height: 60rpx;
+    margin:60rpx 32rpx 0;
+    padding-bottom: 60rpx;
+}
+.submitBtn .van-button__text{
+    color:#fff
+}
+
+.bottom_main .cu-form-group:nth-child(1){
+    border-top: 1rpx solid #eee;
+}
+  
+.bottom_main .cu-form-group:last-child{
+    border-bottom: 1rpx solid #eee;
+}
+
+.star{
+    color: #f73048;
+    padding-right: 14rpx;
+}
+
+
+
+/* 车牌 */
+.container{
+    height: 100vh;
+    background: #fff;
+}
+.translateView{
+  background: #eee;
+}
+.list{
+  margin-bottom: 20rpx;
+  background: #fff;
+}
+.list:last-child{
+margin: 0;
+}
+.item{
+    display: flex;
+    padding: 0 26rpx;
+    width: 100%;
+    height: 116rpx;
+    box-sizing: border-box;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+.item:last-child{
+    border: none;
+}
+.label{
+    margin-right: 10rpx;
+    width: 140rpx;
+}
+.contentBox{
+    display: flex;
+    width: calc(100% - 150rpx);
+    height: 90rpx;
+    align-items: center;
+    justify-content: space-between;
+}
+.promptText{
+        color: #c7c7c7;
+}
+.inputBox{
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+.commonC{
+    width: 50rpx;
+    height:50rpx;
+    border-radius: 50%;
+    line-height: 31rpx;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.itemCardDash {
+    position: relative;
+    width: 60rpx;
+    margin-right: 6rpx;
+    height: 90rpx;
+    border: dashed 1rpx #cccccc;
+    flex:0 0 60rpx;
+}
+
+.colorCircle{
+    background-color: #10c2b8;
+}
+
+.noColor{
+    border:1rpx solid #b3b3b3
+}
+
+.car_item{
+    margin-bottom: 20rpx;
+}
+
+.wx_wrap{
+    margin: 0 24rpx;
+    background: #fff;
+    border-radius: 16rpx;
+    padding: 39rpx 28rpx 39rpx;
+    margin-top: 24rpx;
+    color: #444444;
+    font-size: 22rpx
+}
+
+.wx_wrap .colorFont{
+    color: #00b4aa;
+}
+
+.wx_wrap .wx_bigT{
+    color: #00b4aa;
+    font-size: 24rpx;
+}
+
+.showRight{
+    overflow:hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+}
+
+.dfgs{
+    flex:0 0 7em;
+}
+
+
+/*自定义键盘 */
+.container{
+ height: 100vh;
+ background: #fff;
+}
+.translateView{
+ background: #eee;
+}
+.list{
+ margin-bottom: 20rpx;
+ background: #fff;
+}
+.list:last-child{
+ margin: 0;
+}
+.item{
+ display: flex;
+ padding: 0 26rpx;
+ width: 100%;
+ height: 116rpx;
+ box-sizing: border-box;
+ align-items: center;
+ border-bottom: 1px solid #eee;
+}
+.item:last-child{
+ border: none;
+}
+.label{
+ margin-right: 10rpx;
+ width: 140rpx;
+}
+.contentBox{
+ display: flex;
+ width: calc(100% - 150rpx);
+ height: 90rpx;
+ align-items: center;
+ justify-content: space-between;
+}
+.promptText{
+ color: #c7c7c7;
+}
+.inputBox{
+ width: 100%;
+ height: 80rpx;
+ line-height: 80rpx;
+}
+
+.hiddenClass{
+    display: none;
+}
+
+
+.carwrap{
+    display: flex;
+    font-size: 32rpx;
+}
+
+.shou{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:15rpx;
+    width: 120rpx;
+	height: 90rpx;
+	background-color: #ffffff;
+	border: solid 1rpx #cccccc;
+}
+.itemCardWFirst{
+    border-right: solid 2rpx #cccccc;
+    padding-right: 10rpx;
+}
+.itemCard{
+    width: 60rpx;
+    margin-right: 6rpx;
+    height: 90rpx;
+    text-align: center;
+    border: solid 1rpx #cccccc;
+}
+
+.imgw-car{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.itemCardW{
+    text-align: center;
+}
+
+.dianCar{
+    width: 8rpx;
+	height: 8rpx;
+}
+
+.imgw-car{
+    padding: 0 11rpx;
+}
+
+.timeChooseInput{
+    position: relative;
+}
+
+.timeIcon{
+    position: absolute;
+    right:30rpx;
+    width: 38rpx;
+    height: 39rpx;
+    top:23rpx;
+}
+
+
+.pullIcon{
+    position: absolute;
+    right:30rpx;
+    width: 23rpx;
+    height: 13rpx;
+    top:38rpx;
+}
+.pullDownInput{
+    padding-right: 67rpx;
+}
+
+.xinNy{
+    color: #999999;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 18rpx;
+    line-height: 18rpx;
+    position: absolute;
+    top:58rpx;
+}
+
+.xinWrap{
+    position: relative;
+}
+.pluss{
+    position: absolute;
+    top:14rpx;
+    
+}
+

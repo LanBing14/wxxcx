@@ -1,0 +1,46 @@
+/* pages/user-info/visitorCode/visitorCode.wxss */
+.visitorCode-container{
+  padding: 30rpx;
+}
+.userInfo{
+  background: #fff;
+  /* height: 922rpx; */
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  padding-bottom: 50rpx;
+}
+.userInfo .users{
+  padding: 60rpx 60rpx 0;
+}
+.name{
+  font-size: 40rpx;
+  line-height: 50rpx;
+  margin-bottom: 20rpx;
+}
+.info{
+  line-height: 60rpx;
+  display: flex
+}
+.userInfo text{
+  color: #666;
+  flex: 1;
+}
+.flex-container{
+  display: flex;
+  align-items: center;
+}
+.code{
+  width: 330rpx;
+  height: 500rpx;
+  margin: 0 auto 0;
+}
+.btn-wrap{
+  padding: 0 25rpx;
+}
+.tips{
+ height: 182rpx;
+ font-size: 22rpx;
+ padding: 40rpx 30rpx;
+}

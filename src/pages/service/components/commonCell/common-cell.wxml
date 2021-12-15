@@ -1,0 +1,8 @@
+<van-cell bind:click="chooseCell" data-name="{{name}}"  data-id="{{idNumber}}">
+    <view slot="title">
+        <view class="van-cell-text">{{name}}</view>
+    </view>
+    <view slot="right-icon">
+        <van-icon  name="{{ischoose? 'success':''}}" color="#10c2b8" size="32rpx"/>
+    </view>
+</van-cell>
